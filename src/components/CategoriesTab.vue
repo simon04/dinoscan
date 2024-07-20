@@ -3,11 +3,14 @@
     <cdx-lookup
       v-model:selected="state.language"
       :menu-items="menuItems"
-      :initialInputValue="menuItems.find((i) => i.value === state.language)?.label"
+      :initialInputValue="
+        menuItems.find((i) => i.value === state.language)?.label
+      "
       @input="matrixInput = $event"
     >
       <template #menu-item="{ menuItem }">
-        <strong>{{ menuItem.label }}</strong> (value: {{ menuItem.value }})
+        <strong>{{ menuItem.label }}</strong>
+        (value: {{ menuItem.value }})
       </template>
     </cdx-lookup>
 

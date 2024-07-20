@@ -7,7 +7,7 @@
     :data="sortedResults"
     @update:sort="sort = $event"
   >
-    <template #empty-state> There is no data available </template>
+    <template #empty-state>There is no data available</template>
     <template #item-wiki="{ item }">
       <a :href="`https://${item}.org`">{{ item }}</a>
     </template>

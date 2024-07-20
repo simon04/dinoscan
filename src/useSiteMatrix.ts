@@ -6,7 +6,9 @@ const { data } = await useFetch(
 ).json<{ sitematrix: Sitematrix }>();
 
 const matrix = computed((): Matrix[] =>
-  Object.values(data.value?.sitematrix || {}).filter((v) => typeof v === "object"),
+  Object.values(data.value?.sitematrix || {}).filter(
+    (v) => typeof v === "object",
+  ),
 );
 const languages = computed(() => matrix.value.map((m) => m.code));
 
