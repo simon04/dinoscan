@@ -18,16 +18,29 @@
       <cdx-tab name="tab_wikidata" :label="tt('wikidata')"></cdx-tab>
       <cdx-tab name="tab_output" :label="tt('output')"></cdx-tab>
     </cdx-tabs>
+
+    <div style="margin-top: 2rem">
+      <cdx-button action="progressive" weight="primary" @click="execute">
+        {{ tt("doit") }}
+      </cdx-button>
+    </div>
+
+    <div style="margin-top: 2rem">
+      <ResultsTable />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CdxTab, CdxTabs } from "@wikimedia/codex";
+import { CdxButton, CdxTab, CdxTabs } from "@wikimedia/codex";
 import CategoriesTab from "./components/CategoriesTab.vue";
+import ResultsTable from "./components/ResultsTable.vue";
 import tt from "./i18n/tt";
+import { usePetScan } from "./usePetScan";
 import { useState } from "./useState";
 
 const state = useState();
+const { execute } = usePetScan();
 </script>
 
 <style lang="scss">

@@ -1,0 +1,104 @@
+<template>
+  <cdx-table
+    v-model:sort="sort"
+    class="cdx-docs-table-with-sort"
+    :caption="tt('results')"
+    :columns="columns"
+    :data="sortedResults"
+    @update:sort="sort = $event"
+  >
+    <template #item-wiki="{ item }">
+      <a :href="`https://${item}.org`">{{ item }}</a>
+    </template>
+    <template #item-touched="{ item }">
+      <time style="white-space: nowrap">
+        {{ item.slice(0, 4) }}-{{ item.slice(4, 6) }}-{{ item.slice(6, 8) }}
+      </time>
+      {{ " " }}
+      <time style="white-space: nowrap">
+        {{ item.slice(8, 10) }}:{{ item.slice(10, 12) }}:{{
+          item.slice(12, 14)
+        }}
+      </time>
+    </template>
+    <template #item-q="{ item }">
+      <a
+        :href="`https://www.wikidata.org/wiki/${item}`"
+        target="_blank"
+        rel="external noopener"
+      >
+        {{ item }}
+      </a>
+    </template>
+  </cdx-table>
+</template>
+
+<script setup lang="ts">
+import {
+  CdxTable,
+  TableColumn,
+  TableSort,
+  TableSortOption,
+} from "@wikimedia/codex";
+import { computed, ref } from "vue";
+import tt from "../i18n/tt";
+import { Result, usePetScan } from "../usePetScan";
+
+const { results } = usePetScan();
+
+const columns: (TableColumn & {
+  id: keyof Result;
+})[] = [
+  {
+    id: "title",
+    label: tt("h_title"),
+    allowSort: true,
+  },
+  {
+    id: "id",
+    label: tt("h_id"),
+    allowSort: true,
+    textAlign: "number",
+  },
+  {
+    id: "namespace",
+    label: tt("h_namespace"),
+    allowSort: true,
+    textAlign: "number",
+  },
+  {
+    id: "len",
+    label: tt("h_len"),
+    allowSort: true,
+    textAlign: "number",
+  },
+  {
+    id: "touched",
+    label: tt("h_touched"),
+    allowSort: true,
+    textAlign: "number",
+  },
+  {
+    id: "q",
+    label: tt("wikidata"),
+    allowSort: true,
+    textAlign: "number",
+  },
+];
+
+const sort = ref<TableSort<keyof Result>>({ id: "asc" });
+
+const sortedResults = computed(() => {
+  const [[sortKey, sortOrder]] = Object.entries(sort.value) as [
+    [keyof Result, TableSortOption],
+  ];
+  const multiplier = sortOrder === "asc" ? 1 : -1;
+  return results.value.sort(
+    (a, b) =>
+      multiplier *
+      (typeof a[sortKey] === "number" && typeof b[sortKey] === "number"
+        ? a[sortKey] - b[sortKey]
+        : String(a[sortKey]).localeCompare(String(b[sortKey]))),
+  );
+});
+</script>
