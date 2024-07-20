@@ -3,12 +3,16 @@
     v-model:sort="sort"
     class="cdx-docs-table-with-sort"
     :caption="tt('results')"
-    :columns="columns"
+    :columns="sortedResults.length ? columns : undefined"
     :data="sortedResults"
     @update:sort="sort = $event"
   >
+    <template #empty-state> There is no data available </template>
     <template #item-wiki="{ item }">
       <a :href="`https://${item}.org`">{{ item }}</a>
+    </template>
+    <template #item-namespace="{ item }">
+      {{ tt(`namespace_${item}`) }}
     </template>
     <template #item-touched="{ item }">
       <time style="white-space: nowrap">
@@ -64,7 +68,6 @@ const columns: (TableColumn & {
     id: "namespace",
     label: tt("h_namespace"),
     allowSort: true,
-    textAlign: "number",
   },
   {
     id: "len",
