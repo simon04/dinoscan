@@ -17,8 +17,10 @@ export const results = computed<Result[]>(
   () => data.value?.["*"][0].a["*"] ?? [],
 );
 
+export const query = computed<URL>(() => new URL(data.value?.a.query ?? ""));
+
 export function usePetScan() {
-  return { execute, isFetching, isFinished, results };
+  return { execute, isFetching, isFinished, results, query };
 }
 
 interface PetScan {

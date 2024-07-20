@@ -8,8 +8,14 @@
     @update:sort="sort = $event"
   >
     <template #empty-state>There is no data available</template>
-    <template #item-wiki="{ item }">
-      <a :href="`https://${item}.org`">{{ item }}</a>
+    <template #item-title="{ item }">
+      <a
+        :href="`https://${query.searchParams.get('language')}.${query.searchParams.get('project')}.org/wiki/${item}`"
+        target="_blank"
+        rel="external noopener"
+      >
+        {{ item.replace(/_/g, " ") }}
+      </a>
     </template>
     <template #item-namespace="{ item }">
       {{ tt(`namespace_${item}`) }}
@@ -48,7 +54,7 @@ import { computed, ref } from "vue";
 import tt from "../i18n/tt";
 import { Result, usePetScan } from "../usePetScan";
 
-const { results } = usePetScan();
+const { results, query } = usePetScan();
 
 const columns: (TableColumn & {
   id: keyof Result;
