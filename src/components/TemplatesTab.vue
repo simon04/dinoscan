@@ -2,7 +2,7 @@
   <section>
     <div class="field-row">
       <div v-for="option in options">
-        <cdx-field>
+        <cdx-field :label-icon="cdxIconTemplateAdd">
           <cdx-text-area
             name="templates"
             v-model="state[`templates_${option}`]"
@@ -18,7 +18,7 @@
 
 <div class="field-row">
   <div v-for="option in options">
-	<cdx-field>
+	<cdx-field :label-icon="cdxIconLink">
 	  <cdx-text-area
 		name="templates"
 		v-model="state[`outlinks_${option}`]"
@@ -31,7 +31,7 @@
 
 <div class="field-row">
   <div v-for="option in options">
-	<cdx-field>
+	<cdx-field :label-icon="cdxIconLink">
 	  <cdx-text-area
 		name="templates"
 		v-model="state[`links_to_${option === 'yes' ? 'any' : option}`]"
@@ -46,6 +46,7 @@
 
 <script setup lang="ts">
 import { CdxCheckbox, CdxField, CdxTextArea } from "@wikimedia/codex";
+import { cdxIconLink, cdxIconTemplateAdd } from '@wikimedia/codex-icons';
 import tt from "../i18n/tt";
 import { useState } from "../useState";
 

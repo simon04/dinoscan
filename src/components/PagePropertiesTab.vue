@@ -18,7 +18,7 @@
 
     <div class="field-row">
       <div>
-        <cdx-field>
+        <cdx-field :label-image="cdxIconViewCompact">
           <cdx-text-input
             name="larger"
             v-model="state.larger"
@@ -31,7 +31,7 @@
         </cdx-field>
       </div>
       <div>
-        <cdx-field>
+        <cdx-field :label-image="cdxIconViewCompact">
           <cdx-text-input
             name="smaller"
             v-model="state.smaller"
@@ -63,7 +63,7 @@
 
     <div class="field-row">
       <div>
-        <cdx-field>
+        <cdx-field :label-icon="cdxIconLink">
           <cdx-text-input
             name="larger"
             v-model="state.minlinks"
@@ -74,7 +74,7 @@
         </cdx-field>
       </div>
       <div>
-        <cdx-field>
+        <cdx-field :label-icon="cdxIconLink">
           <cdx-text-input
             name="smaller"
             v-model="state.maxlinks"
@@ -88,7 +88,7 @@
 
     <div class="field-row">
       <div>
-        <cdx-field>
+        <cdx-field :label-icon="cdxIconCalendar">
           <cdx-text-input
             name="larger"
             v-model="state.before"
@@ -100,7 +100,7 @@
         </cdx-field>
       </div>
       <div>
-        <cdx-field>
+        <cdx-field :label-icon="cdxIconCalendar">
           <cdx-text-input
             name="smaller"
             v-model="state.after"
@@ -115,7 +115,15 @@
 
     <div class="field-row">
       <div>
-        <cdx-field :is-fieldset="true" v-for="show_redirects in tertiaryFields">
+        <cdx-field
+          :is-fieldset="true"
+          v-for="show_redirects in tertiaryFields"
+          :label-icon="
+            show_redirects === 'show_disambiguation_pages'
+              ? cdxIconArticleDisambiguation
+              : cdxIconArticleRedirect
+          "
+        >
           <template #label>{{ tt(show_redirects) }}</template>
           <cdx-radio
             v-for="option of tertiaryOptions"
@@ -147,7 +155,7 @@
       </div>
     </div>
 
-    <cdx-field :is-fieldset="true">
+    <cdx-field :is-fieldset="true" :label-icon="cdxIconImage">
       <template #label>{{ tt("page_image") }}</template>
       <cdx-radio
         v-for="option of pageImageOptions"
@@ -166,11 +174,19 @@
 
 <script setup lang="ts">
 import {
+  CdxCheckbox,
   CdxField,
   CdxRadio,
   CdxTextInput,
-  CdxCheckbox,
 } from "@wikimedia/codex";
+import {
+  cdxIconArticleDisambiguation,
+  cdxIconArticleRedirect,
+  cdxIconCalendar,
+  cdxIconImage,
+  cdxIconLink,
+  cdxIconViewCompact,
+} from "@wikimedia/codex-icons";
 import tt from "../i18n/tt";
 import { useNamespaces } from "../useNamespaces";
 import { useState } from "../useState";

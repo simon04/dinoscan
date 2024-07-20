@@ -1,6 +1,14 @@
 <template>
   <section>
-    <cdx-field>
+    <cdx-field
+      :label-icon="
+        state.language === 'commons'
+          ? cdxIconLogoWikimediaCommons
+          : state.language === 'wikidata'
+            ? cdxIconLogoWikidata
+            : cdxIconLanguage
+      "
+    >
       <cdx-lookup
         v-model:selected="state.language"
         :menu-items="menuItems"
@@ -17,7 +25,13 @@
       <template #label>{{ tt("language") }}</template>
     </cdx-field>
 
-    <cdx-field>
+    <cdx-field
+      :label-icon="
+        state.project === 'wikipedia'
+          ? cdxIconLogoWikipedia
+          : cdxIconLogoWikimedia
+      "
+    >
       <cdx-text-input name="project" v-model="state.project" />
       <template #label>{{ tt("project") }}</template>
     </cdx-field>
@@ -77,10 +91,17 @@ import {
   CdxTextInput,
   MenuItemData,
 } from "@wikimedia/codex";
+import {
+  cdxIconLanguage,
+  cdxIconLogoWikidata,
+  cdxIconLogoWikimedia,
+  cdxIconLogoWikimediaCommons,
+  cdxIconLogoWikipedia,
+} from "@wikimedia/codex-icons";
+import { computed, ref } from "vue";
 import tt from "../i18n/tt";
 import { useSiteMatrix } from "../useSiteMatrix";
 import { useState } from "../useState";
-import { computed, ref } from "vue";
 
 const state = useState();
 const matrixInput = ref("");
@@ -95,6 +116,16 @@ const menuItems = computed(() =>
         value: item.code,
         label: `${item.name} (${item.localname})`,
       }),
+    )
+    .concat(
+      {
+        value: "commons",
+        label: tt("site_commons"),
+      },
+      {
+        value: "wikidata",
+        label: tt("site_wikidata"),
+      },
     ),
 );
 </script>
