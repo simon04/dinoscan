@@ -7,26 +7,27 @@
     </div>
   </div>
   <div class="mw-page-container">
-    <cdx-tabs v-model:active="currentTab">
-      <cdx-tab name="categories" :label="tt('categories')">
+    <cdx-tabs v-model:active="state.active_tab">
+      <cdx-tab name="tab_categories" :label="tt('categories')">
         <CategoriesTab style="margin-top: 1rem" />
       </cdx-tab>
-      <cdx-tab name="page_props" :label="tt('page_props')"> </cdx-tab>
-      <cdx-tab name="templates_links" :label="tt('templates_links')"> </cdx-tab>
-      <cdx-tab name="other_sources" :label="tt('other_sources')"> </cdx-tab>
-      <cdx-tab name="wikidata" :label="tt('wikidata')"> </cdx-tab>
-      <cdx-tab name="output" :label="tt('output')"> </cdx-tab>
+      <cdx-tab name="tab_page_props" :label="tt('page_props')"></cdx-tab>
+      <cdx-tab name="tab_templates_links" :label="tt('templates_links')">
+      </cdx-tab>
+      <cdx-tab name="tab_other_sources" :label="tt('other_sources')"></cdx-tab>
+      <cdx-tab name="tab_wikidata" :label="tt('wikidata')"></cdx-tab>
+      <cdx-tab name="tab_output" :label="tt('output')"></cdx-tab>
     </cdx-tabs>
   </div>
 </template>
 
 <script setup lang="ts">
 import { CdxTab, CdxTabs } from "@wikimedia/codex";
-import { ref } from "vue";
 import CategoriesTab from "./components/CategoriesTab.vue";
 import tt from "./i18n/tt";
+import { useState } from "./useState";
 
-const currentTab = ref("categories");
+const state = useState();
 </script>
 
 <style lang="scss">
