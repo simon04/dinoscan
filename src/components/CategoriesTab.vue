@@ -1,9 +1,15 @@
 <template>
   <section>
-    <cdx-field>
-      <cdx-text-input name="language" v-model="state.language" />
-      <template #label>{{ tt("language") }}</template>
-    </cdx-field>
+    <cdx-lookup
+      v-model:selected="state.language"
+      :menu-items="menuItems"
+      :initialInputValue="state.language"
+      @input="matrixInput = $event"
+    >
+      <template #menu-item="{ menuItem }">
+        <strong>{{ menuItem.label }}</strong> (value: {{ menuItem.value }})
+      </template>
+    </cdx-lookup>
 
     <cdx-field>
       <cdx-text-input name="project" v-model="state.project" />
@@ -59,11 +65,30 @@
 <script setup lang="ts">
 import {
   CdxField,
+  CdxLookup,
   CdxRadio,
   CdxTextArea,
   CdxTextInput,
+  MenuItemData,
 } from "@wikimedia/codex";
 import tt from "../i18n/tt";
+import { useSiteMatrix } from "../useSiteMatrix";
 import { useState } from "../useState";
+import { computed, ref } from "vue";
+
 const state = useState();
+const matrixInput = ref("");
+const { matrix } = useSiteMatrix();
+const menuItems = computed(() =>
+  matrix.value
+    .filter(
+      (item) => !matrixInput.value || item?.code?.startsWith(matrixInput.value),
+    )
+    .map(
+      (item): MenuItemData => ({
+        value: item.code,
+        label: `${item.name} (${item.localname})`,
+      }),
+    ),
+);
 </script>
