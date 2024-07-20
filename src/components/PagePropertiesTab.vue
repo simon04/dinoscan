@@ -122,6 +122,21 @@
         {{ tt(`edits_${option}`) }}
       </cdx-radio>
     </cdx-field>
+
+    <cdx-field :is-fieldset="true">
+      <template #label>{{ tt("page_image") }}</template>
+      <cdx-radio
+        v-for="option of pageImageOptions"
+        v-model="state.page_image"
+        name="page_image"
+        :input-value="option"
+        :inline="true"
+      >
+        {{ tt(`page_image_${option}`) }}
+      </cdx-radio>
+    </cdx-field>
+
+    <!-- TODO: ORES -->
   </section>
 </template>
 
@@ -131,6 +146,7 @@ import tt from "../i18n/tt";
 import { useState } from "../useState";
 
 const state = useState();
+const pageImageOptions = ["any", "yes", "free", "nonfree", "no"] as const;
 const tertiaryOptions = ["both", "yes", "no"] as const;
 const tertiaryFields = [
   "show_redirects",
