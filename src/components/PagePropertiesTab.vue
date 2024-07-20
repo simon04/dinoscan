@@ -186,14 +186,3 @@ const tertiaryFields = [
 ] as const;
 const tertiaryEditFields = ["bots", "anons", "flagged"] as const;
 </script>
-
-<style lang="scss">
-.field-row {
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-.field-row > div {
-  flex: 1 1;
-}
-</style>

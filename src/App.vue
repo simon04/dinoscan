@@ -14,10 +14,9 @@
       <cdx-tab name="tab_page_props" :label="tt('page_props')">
         <PagePropertiesTab style="margin-top: 1rem" />
       </cdx-tab>
-      <cdx-tab
-        name="tab_templates_links"
-        :label="tt('templates_links')"
-      ></cdx-tab>
+      <cdx-tab name="tab_templates_links" :label="tt('templates_links')">
+        <TemplatesTab style="margin-top: 1rem" />
+      </cdx-tab>
       <cdx-tab name="tab_other_sources" :label="tt('other_sources')"></cdx-tab>
       <cdx-tab name="tab_wikidata" :label="tt('wikidata')"></cdx-tab>
       <cdx-tab name="tab_output" :label="tt('output')"></cdx-tab>
@@ -39,6 +38,7 @@
 import { CdxButton, CdxTab, CdxTabs } from "@wikimedia/codex";
 import CategoriesTab from "./components/CategoriesTab.vue";
 import PagePropertiesTab from "./components/PagePropertiesTab.vue";
+import TemplatesTab from "./components/TemplatesTab.vue";
 import ResultsTable from "./components/ResultsTable.vue";
 import tt from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
@@ -74,4 +74,12 @@ const { execute } = usePetScan();
 //   --size-4000: 40rem;
 //   --size-5600: 56rem;
 // }
+.field-row {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.field-row > div {
+  flex: 1 1;
+}
 </style>
