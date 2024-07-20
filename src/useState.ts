@@ -43,7 +43,7 @@ const state = reactive({
   minlinks: "",
   namespace_conversion: "keep",
   negcats: "",
-  "ns[0]": 1,
+  "ns[0]": true,
   ores_prediction: "any",
   ores_prob_from: "",
   ores_prob_to: "",

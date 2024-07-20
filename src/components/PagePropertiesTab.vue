@@ -2,6 +2,22 @@
   <section>
     <div class="field-row">
       <div>
+        <cdx-field :is-fieldset="true">
+          <template #label>{{ tt("namespaces") }}</template>
+          <cdx-checkbox
+            v-for="ns in namespaces"
+            :key="ns.id + ns.name"
+            v-model="state[`ns[${ns.id}]`]"
+            :inline="true"
+          >
+            {{ ns.id === 0 ? tt("namespace_0") : ns.name }}
+          </cdx-checkbox>
+        </cdx-field>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div>
         <cdx-field>
           <cdx-text-input
             name="larger"
@@ -141,11 +157,18 @@
 </template>
 
 <script setup lang="ts">
-import { CdxField, CdxRadio, CdxTextInput } from "@wikimedia/codex";
+import {
+  CdxField,
+  CdxRadio,
+  CdxTextInput,
+  CdxCheckbox,
+} from "@wikimedia/codex";
 import tt from "../i18n/tt";
+import { useNamespaces } from "../useNamespaces";
 import { useState } from "../useState";
 
 const state = useState();
+const { namespaces } = useNamespaces();
 const pageImageOptions = ["any", "yes", "free", "nonfree", "no"] as const;
 const tertiaryOptions = ["both", "yes", "no"] as const;
 const tertiaryFields = [
