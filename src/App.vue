@@ -4,6 +4,15 @@
       <h1>{{ tt("toolname") }}</h1>
       <span style="padding-left: 1rem">{{ tt("subtitle") }}</span>
       <span style="padding-left: 1rem">Codex frontend by simon04</span>
+      <span style="padding-left: 1rem">
+        <a
+          href="https://meta.wikimedia.org/wiki/PetScan/en"
+          target="_blank"
+          rel="external noopener"
+        >
+          <cdx-icon :icon="cdxIconHelpNotice" />
+        </a>
+      </span>
     </div>
   </div>
   <div class="mw-page-container">
@@ -35,7 +44,8 @@
 </template>
 
 <script setup lang="ts">
-import { CdxButton, CdxTab, CdxTabs } from "@wikimedia/codex";
+import { CdxButton, CdxIcon, CdxTab, CdxTabs } from "@wikimedia/codex";
+import { cdxIconHelpNotice } from "@wikimedia/codex-icons";
 import CategoriesTab from "./components/CategoriesTab.vue";
 import PagePropertiesTab from "./components/PagePropertiesTab.vue";
 import TemplatesTab from "./components/TemplatesTab.vue";
