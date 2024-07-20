@@ -113,31 +113,39 @@
       </div>
     </div>
 
-    <cdx-field :is-fieldset="true" v-for="show_redirects in tertiaryFields">
-      <template #label>{{ tt(show_redirects) }}</template>
-      <cdx-radio
-        v-for="option of tertiaryOptions"
-        v-model="state[show_redirects]"
-        :name="show_redirects"
-        :input-value="option"
-        :inline="true"
-      >
-        {{ tt(`edits_${option}`) }}
-      </cdx-radio>
-    </cdx-field>
+    <div class="field-row">
+      <div>
+        <cdx-field :is-fieldset="true" v-for="show_redirects in tertiaryFields">
+          <template #label>{{ tt(show_redirects) }}</template>
+          <cdx-radio
+            v-for="option of tertiaryOptions"
+            v-model="state[show_redirects]"
+            :name="show_redirects"
+            :input-value="option"
+            :inline="true"
+          >
+            {{ tt(`edits_${option}`) }}
+          </cdx-radio>
+        </cdx-field>
+      </div>
 
-    <cdx-field :is-fieldset="true" v-for="edit in tertiaryEditFields">
-      <template #label>{{ tt("edits") }}: {{ tt(`edit_${edit}`) }}</template>
-      <cdx-radio
-        v-for="option of tertiaryOptions"
-        v-model="state[`edits[${edit}]`]"
-        :name="edit"
-        :input-value="option"
-        :inline="true"
-      >
-        {{ tt(`edits_${option}`) }}
-      </cdx-radio>
-    </cdx-field>
+      <div>
+        <cdx-field :is-fieldset="true" v-for="edit in tertiaryEditFields">
+          <template #label>
+            {{ tt("edits") }}: {{ tt(`edit_${edit}`) }}
+          </template>
+          <cdx-radio
+            v-for="option of tertiaryOptions"
+            v-model="state[`edits[${edit}]`]"
+            :name="edit"
+            :input-value="option"
+            :inline="true"
+          >
+            {{ tt(`edits_${option}`) }}
+          </cdx-radio>
+        </cdx-field>
+      </div>
+    </div>
 
     <cdx-field :is-fieldset="true">
       <template #label>{{ tt("page_image") }}</template>
