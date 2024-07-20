@@ -1,18 +1,21 @@
 <template>
   <section>
-    <cdx-lookup
-      v-model:selected="state.language"
-      :menu-items="menuItems"
-      :initialInputValue="
-        menuItems.find((i) => i.value === state.language)?.label
-      "
-      @input="matrixInput = $event"
-    >
-      <template #menu-item="{ menuItem }">
-        <strong>{{ menuItem.label }}</strong>
-        (value: {{ menuItem.value }})
-      </template>
-    </cdx-lookup>
+    <cdx-field>
+      <cdx-lookup
+        v-model:selected="state.language"
+        :menu-items="menuItems"
+        :initialInputValue="
+          menuItems.find((i) => i.value === state.language)?.label
+        "
+        @input="matrixInput = $event"
+      >
+        <template #menu-item="{ menuItem }">
+          <strong>{{ menuItem.label }}</strong>
+          (value: {{ menuItem.value }})
+        </template>
+      </cdx-lookup>
+      <template #label>{{ tt("language") }}</template>
+    </cdx-field>
 
     <cdx-field>
       <cdx-text-input name="project" v-model="state.project" />
