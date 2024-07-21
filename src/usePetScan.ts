@@ -14,13 +14,15 @@ export const { execute, isFetching, isFinished, data } = useFetch(
 ).json<PetScan>();
 
 export const results = computed<Result[]>(
-  () => data.value?.["*"][0].a["*"] ?? [],
+  () => data.value?.["*"]?.[0]?.a?.["*"] ?? [],
 );
 
 export const query = computed<URL>(() => new URL(data.value?.a.query ?? ""));
 
+export const error = computed<string | undefined>(() => data.value?.error);
+
 export function usePetScan() {
-  return { execute, isFetching, isFinished, results, query };
+  return { execute, isFetching, isFinished, results, query, error };
 }
 
 interface PetScan {
@@ -38,6 +40,7 @@ interface PetScan {
     querytime_sec: number;
   };
   n: string;
+  error?: string;
 }
 
 export interface Result {

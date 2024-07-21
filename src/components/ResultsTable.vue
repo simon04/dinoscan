@@ -1,5 +1,9 @@
 <template>
+  <cdx-message v-if="error" type="error">
+    {{ error }}
+  </cdx-message>
   <cdx-table
+    v-else
     v-model:sort="sort"
     class="cdx-docs-table-with-sort"
     :caption="tt('results')"
@@ -45,6 +49,7 @@
 
 <script setup lang="ts">
 import {
+  CdxMessage,
   CdxTable,
   TableColumn,
   TableSort,
@@ -54,7 +59,7 @@ import { computed, ref } from "vue";
 import tt from "../i18n/tt";
 import { Result, usePetScan } from "../usePetScan";
 
-const { results, query } = usePetScan();
+const { results, query, error } = usePetScan();
 
 const columns: (TableColumn & {
   id: keyof Result;
