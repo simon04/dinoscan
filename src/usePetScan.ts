@@ -1,15 +1,17 @@
 import { useFetch } from "@vueuse/core";
-import { computed } from "vue";
+import { computed, toRaw } from "vue";
 import { useState } from "./useState";
 
 const state = useState();
 
 export const { execute, isFetching, isFinished, data } = useFetch(
-  computed(
-    () =>
-      "https://petscan.wmcloud.org/?" +
-      new URLSearchParams(state as unknown as Record<string, string>),
-  ),
+  computed(() => {
+    const params = new URLSearchParams();
+    Object.entries(toRaw(state)).forEach(
+      ([key, value]) => value && params.set(key, String(value)),
+    );
+    return "https://petscan.wmcloud.org/?" + params;
+  }),
   { immediate: false },
 ).json<PetScan>();
 
