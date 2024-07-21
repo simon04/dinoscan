@@ -14,10 +14,7 @@
         </a>
       </span>
       <span style="padding-left: 1rem">
-        <cdx-menu-button
-          v-model:selected="language"
-          :menu-items="languages.map((l) => ({ label: l, value: l }))"
-        >
+        <cdx-menu-button v-model:selected="language" :menu-items="languages">
           <cdx-icon :icon="cdxIconLanguage" />
           {{ language }}
         </cdx-menu-button>

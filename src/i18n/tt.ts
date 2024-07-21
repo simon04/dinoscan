@@ -6,10 +6,21 @@ type I18nKey = keyof typeof en;
 
 export const language = ref("en");
 
-const { data } = useFetch(
+const { data: languages0 } = useFetch(
+  "https://tools-static.wmflabs.org/tooltranslate/data/languages.json",
+).json<Record<string, string>>();
+
+const { data: toolinfo } = useFetch(
   "https://tools-static.wmflabs.org/tooltranslate/data/petscan/toolinfo.json",
 ).json<{ languages: string[] }>();
-export const languages = computed(() => data.value?.languages || []);
+
+export const languages = computed(
+  () =>
+    toolinfo.value?.languages.map((l) => ({
+      value: l,
+      label: `${l} ${languages0.value?.[l] || ""}`,
+    })) || [],
+);
 
 const { data: messages } = useFetch(
   computed(
