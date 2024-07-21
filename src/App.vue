@@ -26,7 +26,9 @@
       <cdx-tab name="tab_templates_links" :label="tt('templates_links')">
         <TemplatesTab style="margin-top: 1rem" />
       </cdx-tab>
-      <cdx-tab name="tab_other_sources" :label="tt('other_sources')"></cdx-tab>
+      <cdx-tab name="tab_other_sources" :label="tt('other_sources')">
+        <SourcesTab style="margin-top: 1rem" />
+      </cdx-tab>
       <cdx-tab name="tab_wikidata" :label="tt('wikidata')"></cdx-tab>
       <cdx-tab name="tab_output" :label="tt('output')">
         <OutputTab style="margin-top: 1rem" />
@@ -52,6 +54,7 @@ import CategoriesTab from "./components/CategoriesTab.vue";
 import PagePropertiesTab from "./components/PagePropertiesTab.vue";
 import TemplatesTab from "./components/TemplatesTab.vue";
 import ResultsTable from "./components/ResultsTable.vue";
+import SourcesTab from "./components/SourcesTab.vue";
 import OutputTab from "./components/OutputTab.vue";
 import tt from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
