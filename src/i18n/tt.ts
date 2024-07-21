@@ -16,6 +16,7 @@ const { data: messages } = useFetch(
     () =>
       `https://tools-static.wmflabs.org/tooltranslate/data/petscan/${language.value}.json`,
   ),
+  { refetch: true },
 ).json<Record<I18nKey, string>>();
 
 export default function tt(key: I18nKey): string {

@@ -13,6 +13,15 @@
           <cdx-icon :icon="cdxIconHelpNotice" />
         </a>
       </span>
+      <span style="padding-left: 1rem">
+        <cdx-menu-button
+          v-model:selected="language"
+          :menu-items="languages.map((l) => ({ label: l, value: l }))"
+        >
+          <cdx-icon :icon="cdxIconLanguage" />
+          {{ language }}
+        </cdx-menu-button>
+      </span>
     </div>
   </div>
   <div class="mw-page-container">
@@ -48,15 +57,21 @@
 </template>
 
 <script setup lang="ts">
-import { CdxButton, CdxIcon, CdxTab, CdxTabs } from "@wikimedia/codex";
-import { cdxIconHelpNotice } from "@wikimedia/codex-icons";
+import {
+  CdxButton,
+  CdxIcon,
+  CdxMenuButton,
+  CdxTab,
+  CdxTabs,
+} from "@wikimedia/codex";
+import { cdxIconHelpNotice, cdxIconLanguage } from "@wikimedia/codex-icons";
 import CategoriesTab from "./components/CategoriesTab.vue";
 import PagePropertiesTab from "./components/PagePropertiesTab.vue";
 import TemplatesTab from "./components/TemplatesTab.vue";
 import ResultsTable from "./components/ResultsTable.vue";
 import SourcesTab from "./components/SourcesTab.vue";
 import OutputTab from "./components/OutputTab.vue";
-import tt from "./i18n/tt";
+import tt, { language, languages } from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
 import { useState } from "./useState";
 
