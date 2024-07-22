@@ -19,7 +19,12 @@ export const results = computed<Result[]>(
   () => data.value?.["*"]?.[0]?.a?.["*"] ?? [],
 );
 
-export const query = computed<URL>(() => new URL(data.value?.a.query ?? ""));
+export const query = computed<typeof state>(
+  () =>
+    Object.fromEntries(
+      new URL(data.value?.a.query ?? "").searchParams.entries(),
+    ) as unknown as typeof state,
+);
 
 export const error = computed<string | undefined>(() => data.value?.error);
 

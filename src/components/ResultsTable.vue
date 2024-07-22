@@ -14,7 +14,7 @@
     <template #empty-state>There is no data available</template>
     <template #item-title="{ item }">
       <a
-        :href="`https://${query.searchParams.get('language')}.${query.searchParams.get('project')}.org/wiki/${item}`"
+        :href="`https://${query.language}.${query.project}.org/wiki/${item}`"
         target="_blank"
         rel="external noopener"
       >
