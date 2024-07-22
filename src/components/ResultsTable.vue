@@ -22,7 +22,7 @@
       </a>
     </template>
     <template #item-namespace="{ item }">
-      {{ tt(`namespace_${item}`) }}
+      {{ tt(`namespace_${item}` as unknown as "namespace_0") }}
     </template>
     <template #item-touched="{ item }">
       <time style="white-space: nowrap">
