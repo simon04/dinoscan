@@ -42,7 +42,8 @@
     </cdx-tabs>
 
     <div style="margin-top: 2rem">
-      <cdx-button action="progressive" weight="primary" @click="execute">
+      <cdx-button action="progressive" size="large" weight="primary" @click="execute">
+        <cdx-icon :icon="cdxIconRobot" />
         {{ tt("doit") }}
       </cdx-button>
     </div>
@@ -61,13 +62,13 @@ import {
   CdxTab,
   CdxTabs,
 } from "@wikimedia/codex";
-import { cdxIconHelpNotice, cdxIconLanguage } from "@wikimedia/codex-icons";
+import { cdxIconHelpNotice, cdxIconLanguage, cdxIconRobot } from "@wikimedia/codex-icons";
 import CategoriesTab from "./components/CategoriesTab.vue";
+import OutputTab from "./components/OutputTab.vue";
 import PagePropertiesTab from "./components/PagePropertiesTab.vue";
-import TemplatesTab from "./components/TemplatesTab.vue";
 import ResultsTable from "./components/ResultsTable.vue";
 import SourcesTab from "./components/SourcesTab.vue";
-import OutputTab from "./components/OutputTab.vue";
+import TemplatesTab from "./components/TemplatesTab.vue";
 import tt, { language, languages } from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
 import { useState } from "./useState";
