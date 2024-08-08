@@ -21,6 +21,15 @@
           {{ language }}
         </cdx-menu-button>
       </span>
+      <span>
+        <a
+          :href="`https://tooltranslate.toolforge.org/#tool=11&languages=${language}`"
+          target="_blank"
+          rel="external noopener"
+        >
+          <cdx-icon :icon="cdxIconEdit" />
+        </a>
+      </span>
     </div>
   </div>
   <div class="mw-page-container">
@@ -44,7 +53,12 @@
     </cdx-tabs>
 
     <div style="margin-top: 2rem">
-      <cdx-button action="progressive" size="large" weight="primary" @click="execute">
+      <cdx-button
+        action="progressive"
+        size="large"
+        weight="primary"
+        @click="execute"
+      >
         <cdx-icon :icon="cdxIconRobot" />
         {{ tt("doit") }}
       </cdx-button>
@@ -64,7 +78,12 @@ import {
   CdxTab,
   CdxTabs,
 } from "@wikimedia/codex";
-import { cdxIconHelpNotice, cdxIconLanguage, cdxIconRobot } from "@wikimedia/codex-icons";
+import {
+  cdxIconHelpNotice,
+  cdxIconLanguage,
+  cdxIconRobot,
+  cdxIconEdit,
+} from "@wikimedia/codex-icons";
 import CategoriesTab from "./components/CategoriesTab.vue";
 import OutputTab from "./components/OutputTab.vue";
 import PagePropertiesTab from "./components/PagePropertiesTab.vue";
