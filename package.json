@@ -1,6 +1,7 @@
 {
   "name": "petscan-codex",
   "private": true,
+  "packageManager": "yarn@4.4.0",
   "license": "GPL-3.0",
   "version": "0.0.0",
   "type": "module",
