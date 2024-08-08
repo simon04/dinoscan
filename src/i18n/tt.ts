@@ -1,10 +1,10 @@
-import { useFetch } from "@vueuse/core";
-import { computed, ref, watchEffect } from "vue";
+import { useFetch, useLocalStorage } from "@vueuse/core";
+import { computed, watchEffect } from "vue";
 import type en from "./en.json";
 
 type I18nKey = keyof typeof en;
 
-export const language = ref("en");
+export const language = useLocalStorage("dinoscan.language", "en");
 
 watchEffect(() => (document.documentElement.lang = language.value));
 
