@@ -1,10 +1,12 @@
 import { useFetch } from "@vueuse/core";
-import { computed, ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import type en from "./en.json";
 
 type I18nKey = keyof typeof en;
 
 export const language = ref("en");
+
+watchEffect(() => (document.documentElement.lang = language.value));
 
 const { data: languages0 } = useFetch(
   "https://tools-static.wmflabs.org/tooltranslate/data/languages.json",
