@@ -1,8 +1,10 @@
 <template>
   <div class="vector-header-container">
     <div class="vector-header mw-header">
-      <h1>{{ tt("toolname") }}</h1>
-      <span style="padding-left: 1rem">{{ tt("subtitle") }}</span>
+      <h1>DinoScan</h1>
+      <span style="padding-left: 1rem">
+        {{ tt("toolname") }} {{ tt("subtitle") }}
+      </span>
       <span style="padding-left: 1rem">Codex frontend by simon04</span>
       <span style="padding-left: 1rem">
         <a
