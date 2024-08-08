@@ -11,7 +11,7 @@
     :data="sortedResults"
     @update:sort="sort = $event"
   >
-    <template #empty-state>There is no data available</template>
+    <template #empty-state>{{ tt("num_results").replace("$1", "0") }}</template>
     <template #item-title="{ item }">
       <a
         :href="`https://${query.language}.${query.project}.org/wiki/${item}`"
