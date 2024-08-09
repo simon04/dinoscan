@@ -49,6 +49,9 @@
     <template #item-metadata.defaultsort="{ row }">
       {{ row.metadata.defaultsort || "" }}
     </template>
+    <template #item-metadata.disambiguation="{ row }">
+      {{ row.metadata.disambiguation || "" }}
+    </template>
     <template #item-touched="{ item }">
       <time style="white-space: nowrap">
         {{ item.slice(0, 4) }}-{{ item.slice(4, 6) }}-{{ item.slice(6, 8) }}
@@ -153,6 +156,12 @@ const columns = computed(() =>
     query.value.add_defaultsort
       ? {
           id: "metadata.defaultsort",
+          label: tt("h_defaultsort"),
+        }
+      : undefined,
+    query.value.add_disambiguation
+      ? {
+          id: "metadata.disambiguation",
           label: tt("h_defaultsort"),
         }
       : undefined,
