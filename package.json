@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.11.1",
-    "@wikimedia/codex": "^1.9.0",
-    "@wikimedia/codex-design-tokens": "^1.9.0",
-    "@wikimedia/codex-icons": "^1.9.0",
+    "@wikimedia/codex": "^1.11.0",
+    "@wikimedia/codex-design-tokens": "^1.11.0",
+    "@wikimedia/codex-icons": "^1.11.0",
     "vue": "^3.4.37"
   },
   "devDependencies": {
