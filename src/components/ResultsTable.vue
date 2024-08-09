@@ -61,44 +61,47 @@ import { Result, usePetScan } from "../usePetScan";
 
 const { results, query, error } = usePetScan();
 
-const columns: (TableColumn & {
-  id: keyof Result;
-})[] = [
-  {
-    id: "title",
-    label: tt("h_title"),
-    allowSort: true,
-  },
-  {
-    id: "id",
-    label: tt("h_id"),
-    allowSort: true,
-    textAlign: "number",
-  },
-  {
-    id: "namespace",
-    label: tt("h_namespace"),
-    allowSort: true,
-  },
-  {
-    id: "len",
-    label: tt("h_len"),
-    allowSort: true,
-    textAlign: "number",
-  },
-  {
-    id: "touched",
-    label: tt("h_touched"),
-    allowSort: true,
-    textAlign: "number",
-  },
-  {
-    id: "q",
-    label: tt("wikidata"),
-    allowSort: true,
-    textAlign: "number",
-  },
-];
+const columns = computed(
+  () =>
+    [
+      {
+        id: "title",
+        label: tt("h_title"),
+        allowSort: true,
+      },
+      {
+        id: "id",
+        label: tt("h_id"),
+        allowSort: true,
+        textAlign: "number",
+      },
+      {
+        id: "namespace",
+        label: tt("h_namespace"),
+        allowSort: true,
+      },
+      {
+        id: "len",
+        label: tt("h_len"),
+        allowSort: true,
+        textAlign: "number",
+      },
+      {
+        id: "touched",
+        label: tt("h_touched"),
+        allowSort: true,
+        textAlign: "number",
+      },
+      {
+        id: "q",
+        label: tt("wikidata"),
+        allowSort: true,
+        textAlign: "number",
+      },
+    ] satisfies (TableColumn & {
+      id: keyof Result;
+    })[],
+);
 
 const sort = ref<TableSort<keyof Result>>({ id: "asc" });
 
