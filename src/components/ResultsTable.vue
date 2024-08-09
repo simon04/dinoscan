@@ -46,6 +46,9 @@
         </data>
       </a>
     </template>
+    <template #item-metadata.defaultsort="{ row }">
+      {{ row.metadata.defaultsort || "" }}
+    </template>
     <template #item-touched="{ item }">
       <time style="white-space: nowrap">
         {{ item.slice(0, 4) }}-{{ item.slice(4, 6) }}-{{ item.slice(6, 8) }}
@@ -145,6 +148,12 @@ const columns = computed(() =>
       ? {
           id: "metadata.coordinates",
           label: tt("h_coordinates"),
+        }
+      : undefined,
+    query.value.add_defaultsort
+      ? {
+          id: "metadata.defaultsort",
+          label: tt("h_defaultsort"),
         }
       : undefined,
   ] satisfies (
