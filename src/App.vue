@@ -124,12 +124,14 @@ const { execute } = usePetScan();
 //   --size-4000: 40rem;
 //   --size-5600: 56rem;
 // }
-.field-row {
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-.field-row > div {
-  flex: 1 1;
+@media screen and (min-width: 640px) {
+  .field-row {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .field-row > div {
+    flex: 1 1;
+  }
 }
 </style>
