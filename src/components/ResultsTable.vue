@@ -34,6 +34,18 @@
         />
       </a>
     </template>
+    <template #item-metadata.coordinates="{ row }">
+      <a
+        v-if="row.metadata?.coordinates"
+        :href="`https://geohack.toolforge.org/geohack.php?language=${language}&params=${row.metadata.coordinates.replace('/', ';')}`"
+        target="_blank"
+        rel="external noopener"
+      >
+        <data :value="`geo:${row.metadata.coordinates.replace('/', ';')}`">
+          {{ formatCoordinates(row.metadata.coordinates) }}
+        </data>
+      </a>
+    </template>
     <template #item-touched="{ item }">
       <time style="white-space: nowrap">
         {{ item.slice(0, 4) }}-{{ item.slice(4, 6) }}-{{ item.slice(6, 8) }}
@@ -66,10 +78,22 @@ import {
   TableSortOption,
 } from "@wikimedia/codex";
 import { computed, ref } from "vue";
-import tt from "../i18n/tt";
+import tt, { language } from "../i18n/tt";
 import { Result, usePetScan } from "../usePetScan";
 
 const { results, query, wiki, error } = usePetScan();
+
+function formatCoordinates(coordinates: string | undefined) {
+  return (coordinates || "")
+    .split("/")
+    .map((s) => +s.trim())
+    .map((n) =>
+      n.toLocaleString(language.value || undefined, {
+        maximumFractionDigits: 6,
+      }),
+    )
+    .join(" / ");
+}
 
 function withoutUndefined<T>(list: (T | undefined)[]): T[] {
   return list.filter(Boolean) as T[];
@@ -117,6 +141,12 @@ const columns = computed(() =>
       allowSort: true,
       textAlign: "number",
     },
+    query.value.add_coordinates
+      ? {
+          id: "metadata.coordinates",
+          label: tt("h_coordinates"),
+        }
+      : undefined,
   ] satisfies (
     | (TableColumn & {
         id: keyof Result | `metadata.${keyof Result["metadata"]}`;
