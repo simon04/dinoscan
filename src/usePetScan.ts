@@ -12,25 +12,29 @@ const url = computed(() => {
   return "https://petscan.wmcloud.org/?" + params;
 });
 
-export const { execute, isFetching, isFinished, data } = useFetch(url, {
+const { execute, isFetching, isFinished, data } = useFetch(url, {
   immediate: false,
 }).json<PetScan>();
 
-export const results = computed<Result[]>(
+const results = computed<Result[]>(
   () => data.value?.["*"]?.[0]?.a?.["*"] ?? [],
 );
 
-export const query = computed<typeof state>(
+const query = computed<typeof state>(
   () =>
     Object.fromEntries(
       new URL(data.value?.a.query ?? "").searchParams.entries(),
     ) as unknown as typeof state,
 );
 
-export const error = computed<string | undefined>(() => data.value?.error);
+const wiki = computed(
+  () => `https://${query.value.language}.${query.value.project}.org/wiki`,
+);
+
+const error = computed<string | undefined>(() => data.value?.error);
 
 export function usePetScan() {
-  return { url, execute, isFetching, isFinished, results, query, error };
+  return { url, wiki, execute, isFetching, isFinished, results, query, error };
 }
 
 interface PetScan {
@@ -55,6 +59,10 @@ export interface Result {
   id: number;
   len: number;
   metadata: {
+    coordinates?: string;
+    defaultsort?: string;
+    disambiguation: boolean;
+    image?: string;
     wikidata: string;
   };
   n: string;
