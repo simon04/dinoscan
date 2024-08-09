@@ -38,5 +38,5 @@ const { data: messages } = useFetch(
 
 export default function tt(key: I18nKey): string {
   const message = messages.value?.[key] || messagesEN.value?.[key];
-  return message?.replace("<br/>", "\n") || key;
+  return message?.replace(/<br\/?>/, "\n") || key;
 }
