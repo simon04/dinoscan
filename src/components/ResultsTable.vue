@@ -19,8 +19,8 @@
       />
       <span v-else>{{ tt("num_results").replace("$1", "0") }}</span>
     </template>
-    <template #item-title="{ item }">
-      <a :href="`${wiki}/${item}`" target="_blank" rel="external noopener">
+    <template #item-title="{ item, row }">
+      <a :href="formatLink(row)" target="_blank" rel="external noopener">
         {{ item.replace(/_/g, " ") }}
       </a>
     </template>
@@ -96,6 +96,12 @@ import tt, { language } from "../i18n/tt";
 import { Result, usePetScan } from "../usePetScan";
 
 const { isFetching, results, query, wiki, error } = usePetScan();
+
+function formatLink(row: Result) {
+  return row.nstext
+    ? `${wiki.value}/${row.nstext}:${row.title}`
+    : `${wiki.value}/${row.title}`;
+}
 
 function formatCoordinates(coordinates: string | undefined) {
   return (coordinates || "")
