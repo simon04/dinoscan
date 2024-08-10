@@ -1,5 +1,38 @@
 <template>
   <section>
+    <cdx-button
+      @click="
+        state.language = language;
+        state.project = 'wikipedia';
+      "
+      style="margin-right: 1rem"
+    >
+      <cdx-icon :icon="cdxIconLogoWikipedia" />
+      Wikipedia
+    </cdx-button>
+    <cdx-button
+      @click="
+        state.language = 'commons';
+        state.project = 'wikimedia';
+        state['ns[0]'] = false;
+        state['ns[6]'] = true;
+      "
+      style="margin-right: 1rem"
+    >
+      <cdx-icon :icon="cdxIconLogoWikimediaCommons" />
+      {{ tt("site_commons") }}
+    </cdx-button>
+    <cdx-button
+      @click="
+        state.language = 'wikidata';
+        state.project = 'wikimedia';
+      "
+      style="margin-right: 1rem"
+    >
+      <cdx-icon :icon="cdxIconLogoWikidata" />
+      {{ tt("site_wikidata") }}
+    </cdx-button>
+
     <cdx-field
       :label-icon="
         state.language === 'commons'
@@ -84,6 +117,8 @@
 
 <script setup lang="ts">
 import {
+  CdxButton,
+  CdxIcon,
   CdxField,
   CdxLookup,
   CdxRadio,
@@ -99,7 +134,7 @@ import {
   cdxIconLogoWikipedia,
 } from "@wikimedia/codex-icons";
 import { computed, ref } from "vue";
-import tt from "../i18n/tt";
+import tt, { language } from "../i18n/tt";
 import { useSiteMatrix } from "../useSiteMatrix";
 import { useState } from "../useState";
 

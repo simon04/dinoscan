@@ -53,6 +53,7 @@ const state = reactive({
   namespace_conversion: "keep",
   negcats: "",
   "ns[0]": true,
+  "ns[6]": false,
   ores_prediction: "any",
   ores_prob_from: "",
   ores_prob_to: "",
