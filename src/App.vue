@@ -76,7 +76,7 @@
         action="progressive"
         size="large"
         weight="primary"
-        @click="execute"
+        @click="doIt()"
       >
         <cdx-icon :icon="cdxIconRobot" />
         {{ tt("doit") }}
@@ -117,12 +117,20 @@ import { useState } from "./useState";
 import { useMagicKeys, whenever } from "@vueuse/core";
 
 const state = useState();
-const { execute } = usePetScan();
+const { url, execute } = usePetScan();
 const showDialog = ref(false);
 
 const keys = useMagicKeys();
-whenever(keys["Ctrl+Enter"], () => execute());
-whenever(keys["Meta+Enter"], () => execute());
+whenever(keys["Ctrl+Enter"], () => doIt());
+whenever(keys["Meta+Enter"], () => doIt());
+
+function doIt() {
+  if (state.format === "json" && state.output_compatability === "catscan") {
+    execute();
+  } else {
+    window.open(url.value);
+  }
+}
 </script>
 
 <style lang="scss">
