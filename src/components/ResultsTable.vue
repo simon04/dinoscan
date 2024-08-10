@@ -11,7 +11,14 @@
     :data="sortedResults"
     @update:sort="sort = $event"
   >
-    <template #empty-state>{{ tt("num_results").replace("$1", "0") }}</template>
+    <template #empty-state>
+      <cdx-progress-bar
+        v-if="isFetching"
+        style="width: 100%"
+        aria-label="..."
+      />
+      <span v-else>{{ tt("num_results").replace("$1", "0") }}</span>
+    </template>
     <template #item-title="{ item }">
       <a :href="`${wiki}/${item}`" target="_blank" rel="external noopener">
         {{ item.replace(/_/g, " ") }}
@@ -78,6 +85,7 @@
 <script setup lang="ts">
 import {
   CdxMessage,
+  CdxProgressBar,
   CdxTable,
   TableColumn,
   TableSort,
@@ -87,7 +95,7 @@ import { computed, ref } from "vue";
 import tt, { language } from "../i18n/tt";
 import { Result, usePetScan } from "../usePetScan";
 
-const { results, query, wiki, error } = usePetScan();
+const { isFetching, results, query, wiki, error } = usePetScan();
 
 function formatCoordinates(coordinates: string | undefined) {
   return (coordinates || "")
