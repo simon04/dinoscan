@@ -7,7 +7,7 @@
           <cdx-checkbox
             v-for="ns in namespaces"
             :key="ns.id + ns.name"
-            v-model="state[`ns[${ns.id}]`]"
+            v-model="state[`ns[${ns.id as unknown as 0}]`]"
             :inline="true"
           >
             {{ ns.id === 0 ? tt("namespace_0") : ns.name }}
