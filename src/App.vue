@@ -93,9 +93,14 @@ import TemplatesTab from "./components/TemplatesTab.vue";
 import tt, { language, languages } from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
 import { useState } from "./useState";
+import { useMagicKeys, whenever } from "@vueuse/core";
 
 const state = useState();
 const { execute } = usePetScan();
+
+const keys = useMagicKeys();
+whenever(keys["Ctrl+Enter"], () => execute());
+whenever(keys["Meta+Enter"], () => execute());
 </script>
 
 <style lang="scss">
