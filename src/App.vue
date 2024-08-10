@@ -1,7 +1,7 @@
 <template>
   <div class="vector-header-container">
     <div class="vector-header mw-header">
-      <h1>DinoScan</h1>
+      <h1 @click="showDialog = true" style="cursor: pointer">DinoScan</h1>
       <span style="padding-left: 1rem">
         {{ tt("toolname") }} {{ tt("subtitle") }}
       </span>
@@ -32,6 +32,25 @@
       </span>
     </div>
   </div>
+
+  <cdx-dialog
+    v-model:open="showDialog"
+    title="Wikimania 2024 Hackathon"
+    :use-close-button="true"
+  >
+    <a
+      href="https://commons.wikimedia.org/wiki/File:Wikimania_2024_Dragons_in_love_illustration_(beige_background).png"
+      title="By Illustrated by Kasia Ostrowska (bazgra_nina) – Wikimedia Foundation – Logos of Wikimania 2024, CC0"
+      target="_blank"
+      rel="external noopener"
+    >
+      <img
+        style="max-width: 100%; max-height: 80vh"
+        src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Wikimania_2024_Dragons_in_love_illustration_%28beige_background%29.png"
+      />
+    </a>
+  </cdx-dialog>
+
   <div class="mw-page-container">
     <cdx-tabs v-model:active="state.active_tab">
       <cdx-tab name="tab_categories" :label="tt('categories')">
@@ -71,8 +90,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import {
   CdxButton,
+  CdxDialog,
   CdxIcon,
   CdxMenuButton,
   CdxTab,
@@ -97,6 +118,7 @@ import { useMagicKeys, whenever } from "@vueuse/core";
 
 const state = useState();
 const { execute } = usePetScan();
+const showDialog = ref(false);
 
 const keys = useMagicKeys();
 whenever(keys["Ctrl+Enter"], () => execute());
