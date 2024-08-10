@@ -1,0 +1,22 @@
+---
+image: node:lts
+
+cache:
+  key:
+    files:
+      - yarn.lock
+  paths:
+    - ./.yarn/cache
+
+before_script:
+  - corepack enable
+  - yarn config set enableGlobalCache false
+  - yarn install --immutable
+
+build:
+  stage: build
+  script:
+    - yarn build
+  artifacts:
+    paths:
+      - dist/
