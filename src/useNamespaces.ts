@@ -4,7 +4,7 @@ import { computed } from "vue";
 
 const state = useState();
 
-const { data } = await useFetch(
+const { data } = useFetch(
   computed(
     () =>
       `https://${state.language}.${state.project}.org/w/api.php?origin=*&action=query&meta=siteinfo&siprop=namespaces&format=json&formatversion=2`,

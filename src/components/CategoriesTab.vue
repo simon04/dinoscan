@@ -42,7 +42,9 @@
             : cdxIconLanguage
       "
     >
+      <cdx-text-input v-if="menuItems.length <= 2" v-model="state.language" />
       <cdx-lookup
+        v-else
         v-model:selected="state.language"
         :menu-items="menuItems"
         :initialInputValue="

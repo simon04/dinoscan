@@ -1,7 +1,7 @@
 import { useFetch } from "@vueuse/core";
 import { computed } from "vue";
 
-const { data } = await useFetch(
+const { data } = useFetch(
   "https://commons.wikimedia.org/w/api.php?origin=*&action=sitematrix&smtype=language&format=json&formatversion=2",
 ).json<{ sitematrix: Sitematrix }>();
 
