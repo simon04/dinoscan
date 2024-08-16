@@ -88,6 +88,20 @@
     <div style="margin-top: 2rem">
       <ResultsTable />
     </div>
+
+    <div class="mw-footer-container" style="color: var(--color-subtle)">
+      <footer id="footer" class="mw-footer">
+        <span>DinoScan {{ VITE_BUILD_DATE }} {{ VITE_BUILD_VERSION }}</span>
+        &bullet;
+        <a href="https://www.gnu.org/licenses/gpl.html">GPL v3</a>
+        &bullet;
+        <a href="https://github.com/simon04/dinoscan">
+          github.com/simon04/dinoscan
+        </a>
+        &bullet;
+        <span>Open Source Licenses: {{ VITE_APP_DEPENDENCIES }}</span>
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -118,6 +132,10 @@ import tt, { isRTL, language, languages } from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
 import { useState } from "./useState";
 import { useMagicKeys, whenever } from "@vueuse/core";
+
+const VITE_BUILD_DATE = import.meta.env.VITE_BUILD_DATE;
+const VITE_BUILD_VERSION = import.meta.env.VITE_BUILD_VERSION;
+const VITE_APP_DEPENDENCIES = import.meta.env.VITE_APP_DEPENDENCIES;
 
 const state = useState();
 const { url, execute } = usePetScan();

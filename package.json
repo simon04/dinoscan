@@ -19,6 +19,7 @@
     "vue": "^3.4.37"
   },
   "devDependencies": {
+    "@types/node": "^22.3.0",
     "@vitejs/plugin-vue": "^5.1.2",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.9",
