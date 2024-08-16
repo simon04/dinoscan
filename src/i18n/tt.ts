@@ -1,5 +1,5 @@
 import { useFetch, useLocalStorage } from "@vueuse/core";
-import { computed, watchEffect } from "vue";
+import { computed } from "vue";
 import type en from "./en.json";
 
 type I18nKey = keyof typeof en;
