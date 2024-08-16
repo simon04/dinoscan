@@ -90,7 +90,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import {
   CdxButton,
   CdxDialog,
@@ -111,7 +111,7 @@ import PagePropertiesTab from "./components/PagePropertiesTab.vue";
 import ResultsTable from "./components/ResultsTable.vue";
 import SourcesTab from "./components/SourcesTab.vue";
 import TemplatesTab from "./components/TemplatesTab.vue";
-import tt, { language, languages } from "./i18n/tt";
+import tt, { isRTL, language, languages } from "./i18n/tt";
 import { usePetScan } from "./usePetScan";
 import { useState } from "./useState";
 import { useMagicKeys, whenever } from "@vueuse/core";
@@ -131,10 +131,19 @@ function doIt() {
     window.open(url.value);
   }
 }
+
+watchEffect(() => (document.documentElement.lang = language.value));
+watchEffect(() => (document.documentElement.dir = isRTL.value ? "rtl" : "ltr"));
+watchEffect(() => {
+  if (isRTL.value) {
+    import("@wikimedia/codex/dist/codex.style-rtl.css");
+  } else {
+    import("@wikimedia/codex/dist/codex.style.css");
+  }
+});
 </script>
 
 <style lang="scss">
-@import "@wikimedia/codex/dist/codex.style.css";
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss";
 // :root {
 //   --size-0: 0;

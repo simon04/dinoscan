@@ -6,8 +6,6 @@ type I18nKey = keyof typeof en;
 
 export const language = useLocalStorage("dinoscan.language", "en");
 
-watchEffect(() => (document.documentElement.lang = language.value));
-
 const { data: languages0 } = useFetch(
   "https://tools-static.wmflabs.org/tooltranslate/data/languages.json",
 ).json<Record<string, string>>();
@@ -40,3 +38,74 @@ export default function tt(key: I18nKey): string {
   const message = messages.value?.[key] || messagesEN.value?.[key];
   return message?.replace(/<br\/?>/, "\n") || key;
 }
+
+// https://github.com/i18next/i18next/blob/d7fcec65faf4cb8f232a721d481e0d29ed684159/src/i18next.js#L513
+const rtlLngs = [
+  "ar",
+  "shu",
+  "sqr",
+  "ssh",
+  "xaa",
+  "yhd",
+  "yud",
+  "aao",
+  "abh",
+  "abv",
+  "acm",
+  "acq",
+  "acw",
+  "acx",
+  "acy",
+  "adf",
+  "ads",
+  "aeb",
+  "aec",
+  "afb",
+  "ajp",
+  "apc",
+  "apd",
+  "arb",
+  "arq",
+  "ars",
+  "ary",
+  "arz",
+  "auz",
+  "avl",
+  "ayh",
+  "ayl",
+  "ayn",
+  "ayp",
+  "bbz",
+  "pga",
+  "he",
+  "iw",
+  "ps",
+  "pbt",
+  "pbu",
+  "pst",
+  "prp",
+  "prd",
+  "ug",
+  "ur",
+  "ydd",
+  "yds",
+  "yih",
+  "ji",
+  "yi",
+  "hbo",
+  "men",
+  "xmn",
+  "fa",
+  "jpr",
+  "peo",
+  "pes",
+  "prs",
+  "dv",
+  "sam",
+  "ckb",
+];
+
+// https://github.com/i18next/i18next/blob/d7fcec65faf4cb8f232a721d481e0d29ed684159/src/i18next.js#L580
+export const isRTL = computed(
+  () => rtlLngs.includes(language.value) || language.value.endsWith("-arab"),
+);
