@@ -155,16 +155,10 @@ function doIt() {
 
 watchEffect(() => (document.documentElement.lang = language.value));
 watchEffect(() => (document.documentElement.dir = isRTL.value ? "rtl" : "ltr"));
-watchEffect(() => {
-  if (isRTL.value) {
-    import("@wikimedia/codex/dist/codex.style-rtl.css");
-  } else {
-    import("@wikimedia/codex/dist/codex.style.css");
-  }
-});
 </script>
 
 <style lang="scss">
+@import "@wikimedia/codex/dist/codex.style-bidi.css";
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss";
 // :root {
 //   --size-0: 0;
