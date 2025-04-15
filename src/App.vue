@@ -1,6 +1,6 @@
 <template>
   <div class="vector-header-container">
-    <div class="vector-header mw-header">
+    <div class="vector-header mw-header" style="display: flex">
       <h1 @click="showDialog = true" style="cursor: pointer">DinoScan</h1>
       <span style="padding-left: 1rem">
         {{ tt("toolname") }} {{ tt("subtitle") }}
