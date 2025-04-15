@@ -46,10 +46,8 @@
       <cdx-lookup
         v-else
         v-model:selected="state.language"
+        v-model:input-value="menuItemsLabel"
         :menu-items="menuItems"
-        :initialInputValue="
-          menuItems.find((i) => i.value === state.language)?.label
-        "
         @input="matrixInput = $event"
       >
         <template #menu-item="{ menuItem }">
@@ -164,5 +162,8 @@ const menuItems = computed(() =>
         label: tt("site_wikidata"),
       },
     ),
+);
+const menuItemsLabel = computed(
+  () => menuItems.value.find((i) => i.value === state.language)?.label,
 );
 </script>
