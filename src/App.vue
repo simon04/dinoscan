@@ -158,8 +158,8 @@ watchEffect(() => (document.documentElement.dir = isRTL.value ? "rtl" : "ltr"));
 </script>
 
 <style lang="scss">
-@import "@wikimedia/codex/dist/codex.style-bidi.css";
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss";
+@use "@wikimedia/codex/dist/codex.style-bidi.css";
+@use "@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss";
 // :root {
 //   --size-0: 0;
 //   --size-6: 0.0625rem;

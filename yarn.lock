@@ -807,29 +807,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wikimedia/codex-design-tokens@npm:^1.22.0":
-  version: 1.22.0
-  resolution: "@wikimedia/codex-design-tokens@npm:1.22.0"
-  checksum: 10c0/6531887a3f36e5fc3789f55116f6bcfd2c4f5eef7adc5d727741375e036bbd7c16caebb0ef886cfa166fbfba6bc950eb60fa4ce476a91c86544ed2fc4ce95fb2
+"@wikimedia/codex-design-tokens@npm:^1.23.0":
+  version: 1.23.0
+  resolution: "@wikimedia/codex-design-tokens@npm:1.23.0"
+  checksum: 10c0/1f2a87e62b533be61dba7075287325ec0b1601b93092b67fdd6b2f40c3b7a38811aec28e35e9575692081bffae06e3b75d446ca4e8dee7e4d9a2fe594b3bbccf
   languageName: node
   linkType: hard
 
-"@wikimedia/codex-icons@npm:1.22.0, @wikimedia/codex-icons@npm:^1.22.0":
-  version: 1.22.0
-  resolution: "@wikimedia/codex-icons@npm:1.22.0"
-  checksum: 10c0/d22d5fc48ec943da23bdd60b527a4930b7bbe8013979cf3d79af886db1fa2d2948fb1555fc50525d9e42f465fed92540b946d7c41ae7be154706b58c96d2d5e9
+"@wikimedia/codex-icons@npm:1.23.0, @wikimedia/codex-icons@npm:^1.23.0":
+  version: 1.23.0
+  resolution: "@wikimedia/codex-icons@npm:1.23.0"
+  checksum: 10c0/b66187c2d5375b1bfba1c886dddf9f841187f85560101cd58724746ebe63bd994a38274cb784768cfd3e5acb19ea3f49f453542e55b44488d09b0a48f11e8f75
   languageName: node
   linkType: hard
 
-"@wikimedia/codex@npm:^1.22.0":
-  version: 1.22.0
-  resolution: "@wikimedia/codex@npm:1.22.0"
+"@wikimedia/codex@npm:^1.23.0":
+  version: 1.23.0
+  resolution: "@wikimedia/codex@npm:1.23.0"
   dependencies:
     "@floating-ui/vue": "npm:1.0.6"
-    "@wikimedia/codex-icons": "npm:1.22.0"
+    "@wikimedia/codex-icons": "npm:1.23.0"
   peerDependencies:
     vue: ^3.5.13
-  checksum: 10c0/48d7a2523e32b72363afecfcb4b8a9b014c542a4fb486c5d0296686f66a900e4210926f3f26ead18a97a5990b827455b1c3eb61bc1f432a56762d9026896b05a
+  checksum: 10c0/32a44b9d3a2551393539195d30437815032fcd1f1d54d4f8428706ad406ef2dc131442a53eb1a578ef1f3a7496f3a5b663138e5abc0ecebac9c31e1ebce14604
   languageName: node
   linkType: hard
 
@@ -1082,9 +1082,9 @@ __metadata:
     "@types/node": "npm:^22.14.1"
     "@vitejs/plugin-vue": "npm:^5.2.3"
     "@vueuse/core": "npm:^13.1.0"
-    "@wikimedia/codex": "npm:^1.22.0"
-    "@wikimedia/codex-design-tokens": "npm:^1.22.0"
-    "@wikimedia/codex-icons": "npm:^1.22.0"
+    "@wikimedia/codex": "npm:^1.23.0"
+    "@wikimedia/codex-design-tokens": "npm:^1.23.0"
+    "@wikimedia/codex-icons": "npm:^1.23.0"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^15.5.1"
     prettier: "npm:^3.5.3"
