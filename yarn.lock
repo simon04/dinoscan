@@ -807,29 +807,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wikimedia/codex-design-tokens@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "@wikimedia/codex-design-tokens@npm:1.23.0"
-  checksum: 10c0/1f2a87e62b533be61dba7075287325ec0b1601b93092b67fdd6b2f40c3b7a38811aec28e35e9575692081bffae06e3b75d446ca4e8dee7e4d9a2fe594b3bbccf
+"@wikimedia/codex-design-tokens@npm:^2.0.0-rc.1":
+  version: 2.0.0-rc.1
+  resolution: "@wikimedia/codex-design-tokens@npm:2.0.0-rc.1"
+  checksum: 10c0/05b7647fedadfa07976fdb692da4e87d21d56de20c388475d63d999736b10e94b38fb7e31a59e9b09dd7378902ac327934480d2f39b4e2fc115541a8070b561d
   languageName: node
   linkType: hard
 
-"@wikimedia/codex-icons@npm:1.23.0, @wikimedia/codex-icons@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "@wikimedia/codex-icons@npm:1.23.0"
-  checksum: 10c0/b66187c2d5375b1bfba1c886dddf9f841187f85560101cd58724746ebe63bd994a38274cb784768cfd3e5acb19ea3f49f453542e55b44488d09b0a48f11e8f75
+"@wikimedia/codex-icons@npm:2.0.0-rc.1, @wikimedia/codex-icons@npm:^2.0.0-rc.1":
+  version: 2.0.0-rc.1
+  resolution: "@wikimedia/codex-icons@npm:2.0.0-rc.1"
+  checksum: 10c0/9f4164b14c1a90db601a39198d15dd3f4e9bc498cb9a1a8a049ebc749fe7542924ba9238714d4acac2dbdacb54e6fbf534f728a0f80cf34679c2f56c0150c3fe
   languageName: node
   linkType: hard
 
-"@wikimedia/codex@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "@wikimedia/codex@npm:1.23.0"
+"@wikimedia/codex@npm:^2.0.0-rc.1":
+  version: 2.0.0-rc.1
+  resolution: "@wikimedia/codex@npm:2.0.0-rc.1"
   dependencies:
     "@floating-ui/vue": "npm:1.0.6"
-    "@wikimedia/codex-icons": "npm:1.23.0"
+    "@wikimedia/codex-icons": "npm:2.0.0-rc.1"
   peerDependencies:
     vue: ^3.5.13
-  checksum: 10c0/32a44b9d3a2551393539195d30437815032fcd1f1d54d4f8428706ad406ef2dc131442a53eb1a578ef1f3a7496f3a5b663138e5abc0ecebac9c31e1ebce14604
+  checksum: 10c0/1358154618a97b6437ed857738dca14ca40ac182edba9cf65bb40d6f397d738aa4de5f9fb255a91ec4491edc315f6baf6df67098b10ce0ef840e16d04f5fba21
   languageName: node
   linkType: hard
 
@@ -1082,9 +1082,9 @@ __metadata:
     "@types/node": "npm:^22.14.1"
     "@vitejs/plugin-vue": "npm:^5.2.3"
     "@vueuse/core": "npm:^13.1.0"
-    "@wikimedia/codex": "npm:^1.23.0"
-    "@wikimedia/codex-design-tokens": "npm:^1.23.0"
-    "@wikimedia/codex-icons": "npm:^1.23.0"
+    "@wikimedia/codex": "npm:^2.0.0-rc.1"
+    "@wikimedia/codex-design-tokens": "npm:^2.0.0-rc.1"
+    "@wikimedia/codex-icons": "npm:^2.0.0-rc.1"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^15.5.1"
     prettier: "npm:^3.5.3"
