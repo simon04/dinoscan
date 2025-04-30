@@ -9,7 +9,7 @@ const { data } = useFetch(
     () =>
       `https://${state.language}.${state.project}.org/w/api.php?origin=*&action=query&meta=siteinfo&siprop=namespaces&format=json&formatversion=2`,
   ),
-  { refetch: true },
+  { refetch: () => state.language?.length >= 2 && state.project?.length >= 2 },
 ).json<{ query: Query }>();
 
 const namespaces = computed((): Namespace[] =>
