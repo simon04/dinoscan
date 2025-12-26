@@ -157,32 +157,8 @@ watchEffect(() => (document.documentElement.lang = language.value));
 watchEffect(() => (document.documentElement.dir = isRTL.value ? "rtl" : "ltr"));
 </script>
 
-<style lang="scss">
-@use "@wikimedia/codex/dist/codex.style-bidi.css";
-@use "@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss";
-// :root {
-//   --size-0: 0;
-//   --size-6: 0.0625rem;
-//   --size-12: 0.125rem;
-//   --size-25: 0.25rem;
-//   --size-50: 0.5rem;
-//   --size-75: 0.75rem;
-//   --size-100: 1rem;
-//   --size-125: 1.25rem;
-//   --size-150: 1.5rem;
-//   --size-200: 2rem;
-//   --size-250: 2.5rem;
-//   --size-275: 2.75rem;
-//   --size-300: 3rem;
-//   --size-400: 4rem;
-//   --size-800: 8rem;
-//   --size-1600: 16rem;
-//   --size-2400: 24rem;
-//   --size-2800: 28rem;
-//   --size-3200: 32rem;
-//   --size-4000: 40rem;
-//   --size-5600: 56rem;
-// }
+<style>
+@import "@wikimedia/codex/dist/codex.style-bidi.css";
 @media screen and (min-width: 640px) {
   .field-row {
     margin-bottom: 1rem;

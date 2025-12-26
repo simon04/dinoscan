@@ -39,9 +39,6 @@ importers:
       oxfmt:
         specifier: ^0.20.0
         version: 0.20.0
-      sass:
-        specifier: ^1.86.3
-        version: 1.86.3
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -1373,6 +1370,7 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.1.2
+    optional: true
 
   cli-cursor@5.0.0:
     dependencies:
@@ -1471,7 +1469,8 @@ snapshots:
 
   husky@9.1.7: {}
 
-  immutable@5.1.1: {}
+  immutable@5.1.1:
+    optional: true
 
   is-extglob@2.1.1:
     optional: true
@@ -1598,7 +1597,8 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  readdirp@4.1.2: {}
+  readdirp@4.1.2:
+    optional: true
 
   restore-cursor@5.1.0:
     dependencies:
@@ -1640,6 +1640,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.1
+    optional: true
 
   shebang-command@2.0.0:
     dependencies:
