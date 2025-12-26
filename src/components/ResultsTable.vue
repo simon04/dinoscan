@@ -25,7 +25,7 @@
       </a>
     </template>
     <template #item-namespace="{ item }">
-      {{ tt(`namespace_${item}` as unknown as "namespace_0") }}
+      {{ namespacesByID[item]?.name ?? item }}
     </template>
     <template #item-metadata.image="{ row }">
       <a
@@ -94,7 +94,9 @@ import {
 import { computed, ref } from "vue";
 import tt, { language } from "../i18n/tt";
 import { Result, usePetScan } from "../usePetScan";
+import { useNamespaces } from "../useNamespaces";
 
+const { namespacesByID } = useNamespaces();
 const { isFetching, results, query, wiki, error } = usePetScan();
 
 function formatLink(row: Result) {

@@ -15,9 +15,12 @@ const { data } = useFetch(
 const namespaces = computed((): Namespace[] =>
   Object.values(data.value?.query.namespaces ?? {}),
 );
+const namespacesByID = computed(() =>
+  Object.fromEntries(namespaces.value.map((n) => [n.id, n])),
+);
 
 export function useNamespaces() {
-  return { namespaces };
+  return { namespaces, namespacesByID };
 }
 
 export interface Welcome {
