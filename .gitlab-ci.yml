@@ -1,22 +1,16 @@
 ---
-image: node:lts
-
-cache:
-  key:
-    files:
-      - yarn.lock
-  paths:
-    - ./.yarn/cache
-
-before_script:
-  - corepack enable
-  - yarn config set enableGlobalCache false
-  - yarn install --immutable
-
 build:
   stage: build
+  image: node:24
+  before_script:
+    - npm install --global corepack@latest
+    - corepack enable
+    - pnpm config set store-dir .pnpm-store
   script:
-    - yarn build
-  artifacts:
+    - pnpm install
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
     paths:
-      - dist/
+      - .pnpm-store
