@@ -11,14 +11,14 @@ importers:
         specifier: ^13.1.0
         version: 13.1.0(vue@3.5.13(typescript@5.8.3))
       "@wikimedia/codex":
-        specifier: ^2.0.0-rc.1
-        version: 2.0.0-rc.1(vue@3.5.13(typescript@5.8.3))
+        specifier: ^2.3.3
+        version: 2.3.3(vue@3.5.13(typescript@5.8.3))
       "@wikimedia/codex-design-tokens":
-        specifier: ^2.0.0-rc.1
-        version: 2.0.0-rc.1
+        specifier: ^2.3.3
+        version: 2.3.3
       "@wikimedia/codex-icons":
-        specifier: ^2.0.0-rc.1
-        version: 2.0.0-rc.1
+        specifier: ^2.3.3
+        version: 2.3.3
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.8.3)
@@ -306,22 +306,22 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  "@floating-ui/core@1.6.7":
+  "@floating-ui/core@1.7.3":
     resolution:
       {
-        integrity: sha512-yDzVT/Lm101nQ5TCVeK65LtdN7Tj4Qpr9RTXJ2vPFLqtLxwOrpoxAHAJI8J3yYWUc40J0BDBheaitK5SJmno2g==,
+        integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==,
       }
 
-  "@floating-ui/dom@1.6.10":
+  "@floating-ui/dom@1.7.4":
     resolution:
       {
-        integrity: sha512-fskgCFv8J8OamCmyun8MfjB1Olfn+uZKjOKZ0vhYF3gRmEUXcGOjxWL8bBr7i4kIuPZ2KD2S3EUIOxnjC8kl2A==,
+        integrity: sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==,
       }
 
-  "@floating-ui/utils@0.2.7":
+  "@floating-ui/utils@0.2.10":
     resolution:
       {
-        integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==,
+        integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==,
       }
 
   "@floating-ui/vue@1.0.6":
@@ -761,26 +761,26 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  "@wikimedia/codex-design-tokens@2.0.0-rc.1":
+  "@wikimedia/codex-design-tokens@2.3.3":
     resolution:
       {
-        integrity: sha512-y9Tk+2OZjrBcwSvYEHV/lhv444X2u/TVSg+fihUiWF/qPaXxuPEHw6KWzNzc7WQrkF5ul8BvKZa8W8v4SaEyUA==,
+        integrity: sha512-BUuneFuz3NvAwKZFA7Dhbqj0OFS/PjiDW9Q9P69M0o7EaXtPfiyWs5li+9Hi9fk9dHJhbHeuV0DkqoIhaH+DTQ==,
       }
-    engines: { node: ">=20", npm: ">=10.8.1" }
+    engines: { node: ">=20.19.1", npm: ">=10.8.1" }
 
-  "@wikimedia/codex-icons@2.0.0-rc.1":
+  "@wikimedia/codex-icons@2.3.3":
     resolution:
       {
-        integrity: sha512-H1wGqIos1xatPOYazY+X7ZEcv/7T21UMXtDL+66sfLfqCQlISKM4DvZ6cGgNMKSwX1EotT8etKSm21dMPpEVOA==,
+        integrity: sha512-+lXjEpTrxr4EtlA5tR0kk1QnnoHdbfG/nTTjpUFf4GU0jnz6FJt+icVjTrJ6gt7Ifruag67+PtaMuj0UVQqm2w==,
       }
-    engines: { node: ">=20", npm: ">=10.8.1" }
+    engines: { node: ">=20.19.1", npm: ">=10.8.2" }
 
-  "@wikimedia/codex@2.0.0-rc.1":
+  "@wikimedia/codex@2.3.3":
     resolution:
       {
-        integrity: sha512-oPTkwwr74R0B4bBvpyZkczD9Mak8V5rArruZWBytFDcijQz+5Kn3YYcWUcCRD9Mc9cXVf8CbVv2iCEHFKcxxjg==,
+        integrity: sha512-WfpbPycKg18YxisMnPJmz3Plhid1tbrco+NU8Clb5eP11QvguC/749kvJ6dT5LlGiV2DwGCh5ZZEKs4KqgC8eA==,
       }
-    engines: { node: ">=20", npm: ">=10.8.1" }
+    engines: { node: ">=20.19.1", npm: ">=10.8.2" }
     peerDependencies:
       vue: ^3.5.13
 
@@ -1564,21 +1564,21 @@ snapshots:
   "@esbuild/win32-x64@0.25.2":
     optional: true
 
-  "@floating-ui/core@1.6.7":
+  "@floating-ui/core@1.7.3":
     dependencies:
-      "@floating-ui/utils": 0.2.7
+      "@floating-ui/utils": 0.2.10
 
-  "@floating-ui/dom@1.6.10":
+  "@floating-ui/dom@1.7.4":
     dependencies:
-      "@floating-ui/core": 1.6.7
-      "@floating-ui/utils": 0.2.7
+      "@floating-ui/core": 1.7.3
+      "@floating-ui/utils": 0.2.10
 
-  "@floating-ui/utils@0.2.7": {}
+  "@floating-ui/utils@0.2.10": {}
 
   "@floating-ui/vue@1.0.6(vue@3.5.13(typescript@5.8.3))":
     dependencies:
-      "@floating-ui/dom": 1.6.10
-      "@floating-ui/utils": 0.2.7
+      "@floating-ui/dom": 1.7.4
+      "@floating-ui/utils": 0.2.10
       vue-demi: 0.14.10(vue@3.5.13(typescript@5.8.3))
     transitivePeerDependencies:
       - "@vue/composition-api"
@@ -1817,14 +1817,14 @@ snapshots:
     dependencies:
       vue: 3.5.13(typescript@5.8.3)
 
-  "@wikimedia/codex-design-tokens@2.0.0-rc.1": {}
+  "@wikimedia/codex-design-tokens@2.3.3": {}
 
-  "@wikimedia/codex-icons@2.0.0-rc.1": {}
+  "@wikimedia/codex-icons@2.3.3": {}
 
-  "@wikimedia/codex@2.0.0-rc.1(vue@3.5.13(typescript@5.8.3))":
+  "@wikimedia/codex@2.3.3(vue@3.5.13(typescript@5.8.3))":
     dependencies:
       "@floating-ui/vue": 1.0.6(vue@3.5.13(typescript@5.8.3))
-      "@wikimedia/codex-icons": 2.0.0-rc.1
+      "@wikimedia/codex-icons": 2.3.3
       vue: 3.5.13(typescript@5.8.3)
     transitivePeerDependencies:
       - "@vue/composition-api"
