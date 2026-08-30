@@ -1,0 +1,13 @@
+# https://wikitech.wikimedia.org/wiki/Help:Toolforge/Deploy_your_tool
+config_version: v1beta1
+components:
+  web:
+    component_type: continuous
+    build:
+      repository: https://github.com/simon04/dinoscan
+      ref: master
+    run:
+      command: web
+      port: 8000
+      publish: /
+      health_check_http: /

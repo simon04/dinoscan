@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TOOLFORGE_DEPLOY_TOKEN: ${{ secrets.TOOLFORGE_DEPLOY_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -21,3 +23,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           force_orphan: true
+      - name: Deploy to Toolforge
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && env.TOOLFORGE_DEPLOY_TOKEN != ''
+        run: >
+          curl --fail-with-body -X POST
+          "https://api.svc.toolforge.org/components/v1/tool/dinoscan/deployment?token=$TOOLFORGE_DEPLOY_TOKEN"

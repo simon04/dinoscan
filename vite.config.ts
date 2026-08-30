@@ -4,7 +4,12 @@ import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
 function git(command: string): string {
-  return execSync(`git ${command}`, { encoding: "utf8" }).trim();
+  try {
+    return execSync(`git ${command}`, { encoding: "utf8" }).trim();
+  } catch {
+    // The Toolforge build container may not expose a usable git checkout.
+    return "";
+  }
 }
 
 function json(path: string) {
