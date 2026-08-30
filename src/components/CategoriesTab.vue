@@ -146,12 +146,10 @@ const menuItems = computed(() =>
     .filter(
       (item) => !matrixInput.value || item?.code?.startsWith(matrixInput.value),
     )
-    .map(
-      (item): MenuItemData => ({
-        value: item.code,
-        label: `${item.name} (${item.localname})`,
-      }),
-    )
+    .map((item): MenuItemData => ({
+      value: item.code,
+      label: `${item.name} (${item.localname})`,
+    }))
     .concat(
       {
         value: "commons",

@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vite-plus";
 import vue from "@vitejs/plugin-vue";
 import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
@@ -29,7 +29,23 @@ process.env.VITE_APP_DEPENDENCIES = Object.keys(
   })
   .join(", ");
 
-// https://vitejs.dev/config/
+// https://viteplus.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  fmt: {
+    htmlWhitespaceSensitivity: "ignore",
+    printWidth: 80,
+  },
+  lint: {
+    ignorePatterns: ["dist/**"],
+    options: {
+      typeAware: true,
+      // Type checking stays with `vue-tsc -b` (see the `build` script):
+      // tsgolint has no Vue SFC support, so it cannot resolve `*.vue` imports.
+      typeCheck: false,
+    },
+  },
+  staged: {
+    "*": "vp check --fix",
+  },
 });

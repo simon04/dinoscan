@@ -1,6 +1,0 @@
-{
-  "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "htmlWhitespaceSensitivity": "ignore",
-  "printWidth": 80,
-  "ignorePatterns": []
-}
