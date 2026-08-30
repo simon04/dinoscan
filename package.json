@@ -16,7 +16,7 @@
     "@wikimedia/codex": "^2.3.3",
     "@wikimedia/codex-design-tokens": "^2.3.3",
     "@wikimedia/codex-icons": "^2.3.3",
-    "vue": "3.6.0-beta.1"
+    "vue": "3.6.0-rc.6"
   },
   "devDependencies": {
     "@types/node": "^22.14.1",
