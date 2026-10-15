@@ -2,7 +2,7 @@ import { useFetch } from "@vueuse/core";
 import { computed } from "vue";
 
 const { data } = useFetch(
-  "https://commons.wikimedia.org/w/api.php?origin=*&action=sitematrix&smtype=language&format=json&formatversion=2",
+  "https://commons.wikimedia.org/w/api.php?origin=*&action=sitematrix&smtype=language&format=json&formatversion=2&maxage=86400",
 ).json<{ sitematrix: Sitematrix }>();
 
 const matrix = computed((): Matrix[] =>

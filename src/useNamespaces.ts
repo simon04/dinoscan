@@ -7,7 +7,7 @@ const state = useState();
 const { data } = useFetch(
   computed(
     () =>
-      `https://${state.language}.${state.project}.org/w/api.php?origin=*&action=query&meta=siteinfo&siprop=namespaces&format=json&formatversion=2`,
+      `https://${state.language}.${state.project}.org/w/api.php?origin=*&action=query&meta=siteinfo&siprop=namespaces&format=json&formatversion=2&maxage=86400`,
   ),
   { refetch: () => state.language?.length >= 2 && state.project?.length >= 2 },
 ).json<{ query: Query }>();
