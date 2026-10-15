@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@vueuse/core": "^14.4.0",
-    "@wikimedia/codex": "^2.3.3",
-    "@wikimedia/codex-design-tokens": "^2.3.3",
-    "@wikimedia/codex-icons": "^2.3.3",
+    "@wikimedia/codex": "^2.7.0",
+    "@wikimedia/codex-design-tokens": "^2.7.0",
+    "@wikimedia/codex-icons": "^2.7.0",
     "vue": "3.6.0-rc.11"
   },
   "devDependencies": {

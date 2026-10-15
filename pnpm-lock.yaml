@@ -144,14 +144,14 @@ importers:
         specifier: ^14.4.0
         version: 14.4.0(vue@3.6.0-rc.11(typescript@5.9.3))
       '@wikimedia/codex':
-        specifier: ^2.3.3
-        version: 2.3.3(vue@3.6.0-rc.11(typescript@5.9.3))
+        specifier: ^2.7.0
+        version: 2.7.0(vue@3.6.0-rc.11(typescript@5.9.3))
       '@wikimedia/codex-design-tokens':
-        specifier: ^2.3.3
-        version: 2.3.3
+        specifier: ^2.7.0
+        version: 2.7.0
       '@wikimedia/codex-icons':
-        specifier: ^2.3.3
-        version: 2.3.3
+        specifier: ^2.7.0
+        version: 2.7.0
       vue:
         specifier: 3.6.0-rc.11
         version: 3.6.0-rc.11(typescript@5.9.3)
@@ -859,17 +859,17 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  '@wikimedia/codex-design-tokens@2.3.3':
-    resolution: {integrity: sha512-BUuneFuz3NvAwKZFA7Dhbqj0OFS/PjiDW9Q9P69M0o7EaXtPfiyWs5li+9Hi9fk9dHJhbHeuV0DkqoIhaH+DTQ==}
-    engines: {node: '>=20.19.1', npm: '>=10.8.1'}
+  '@wikimedia/codex-design-tokens@2.7.0':
+    resolution: {integrity: sha512-wdvIzDKQmmRkVi/YYyAO0ufXYz1ISJUYzLNKWP13QlBrkw/Y6z0dypOm4WA2vJNgNxTmiabOA3dLFvefLinylQ==}
+    engines: {node: '>=24.14.1', npm: '>=11.10.0'}
 
-  '@wikimedia/codex-icons@2.3.3':
-    resolution: {integrity: sha512-+lXjEpTrxr4EtlA5tR0kk1QnnoHdbfG/nTTjpUFf4GU0jnz6FJt+icVjTrJ6gt7Ifruag67+PtaMuj0UVQqm2w==}
-    engines: {node: '>=20.19.1', npm: '>=10.8.2'}
+  '@wikimedia/codex-icons@2.7.0':
+    resolution: {integrity: sha512-nORTIm6pkzJk0H+4TMZLMvrCDTc1rpbQ77hHfsA230Mxjs281Kz1p5JjEiUJuXrel/PiMsbnWLWCia5h0URpIA==}
+    engines: {node: '>=24.14.1', npm: '>=11.11.0'}
 
-  '@wikimedia/codex@2.3.3':
-    resolution: {integrity: sha512-WfpbPycKg18YxisMnPJmz3Plhid1tbrco+NU8Clb5eP11QvguC/749kvJ6dT5LlGiV2DwGCh5ZZEKs4KqgC8eA==}
-    engines: {node: '>=20.19.1', npm: '>=10.8.2'}
+  '@wikimedia/codex@2.7.0':
+    resolution: {integrity: sha512-LZvhmGd2YcKKkavJVkWUVDL/aoBJRcSMO+PeEr5J5r4ieEye3nrtdZIuDygTezoKrLWMDNP9zUJG9kBmqzdUvw==}
+    engines: {node: '>=24.14.1', npm: '>=11.11.0'}
     peerDependencies:
       vue: ^3.5.13
 
@@ -1217,11 +1217,6 @@ packages:
   muggle-string@0.4.1:
     resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
 
-  nanoid@3.3.18:
-    resolution: {integrity: sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   nanoid@3.3.20:
     resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -1284,10 +1279,6 @@ packages:
   pngjs@7.0.0:
     resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
     engines: {node: '>=14.19.0'}
-
-  postcss@8.5.26:
-    resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.30:
     resolution: {integrity: sha512-zkd+e9S1AQHhmaBKye9zlFHWjOwVgqXl1q3ECYy8561K7qxR2cREf/STLskulBFd78k6AOFeA+ff1TtEzk9bAA==}
@@ -1840,7 +1831,7 @@ snapshots:
       '@oxc-project/runtime': 0.146.0
       '@oxc-project/types': 0.146.0
       lightningcss: 1.33.0
-      postcss: 8.5.26
+      postcss: 8.5.30
       yuku-codegen: 0.5.48
       yuku-parser: 0.5.48
     optionalDependencies:
@@ -2003,14 +1994,14 @@ snapshots:
     dependencies:
       vue: 3.6.0-rc.11(typescript@5.9.3)
 
-  '@wikimedia/codex-design-tokens@2.3.3': {}
+  '@wikimedia/codex-design-tokens@2.7.0': {}
 
-  '@wikimedia/codex-icons@2.3.3': {}
+  '@wikimedia/codex-icons@2.7.0': {}
 
-  '@wikimedia/codex@2.3.3(vue@3.6.0-rc.11(typescript@5.9.3))':
+  '@wikimedia/codex@2.7.0(vue@3.6.0-rc.11(typescript@5.9.3))':
     dependencies:
       '@floating-ui/vue': 1.0.6(vue@3.6.0-rc.11(typescript@5.9.3))
-      '@wikimedia/codex-icons': 2.3.3
+      '@wikimedia/codex-icons': 2.7.0
       vue: 3.6.0-rc.11(typescript@5.9.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -2225,8 +2216,6 @@ snapshots:
 
   muggle-string@0.4.1: {}
 
-  nanoid@3.3.18: {}
-
   nanoid@3.3.20: {}
 
   node-addon-api@7.1.1:
@@ -2305,12 +2294,6 @@ snapshots:
 
   pngjs@7.0.0: {}
 
-  postcss@8.5.26:
-    dependencies:
-      nanoid: 3.3.18
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
   postcss@8.5.30:
     dependencies:
       nanoid: 3.3.20
@@ -2332,7 +2315,7 @@ snapshots:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.1.4
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
     optionalDependencies:
       '@parcel/watcher': 2.5.1
     optional: true
