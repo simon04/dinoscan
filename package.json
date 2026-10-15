@@ -12,7 +12,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@vueuse/core": "^14.4.0",
+    "@vueuse/core": "^15.0.0",
     "@wikimedia/codex": "^2.7.0",
     "@wikimedia/codex-design-tokens": "^2.7.0",
     "@wikimedia/codex-icons": "^2.7.0",
