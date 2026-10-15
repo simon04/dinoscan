@@ -53,6 +53,20 @@
     </cdx-field>
 
     <cdx-field :is-fieldset="true">
+      <template #label>{{ tt("file_media_types") }}</template>
+      <template #description>{{ tt("file_media_types_note") }}</template>
+      <cdx-checkbox
+        v-for="[option, label] of mediaTypeOptions"
+        v-model="fileMediaTypes"
+        name="file_media_types"
+        :input-value="option"
+        :inline="true"
+      >
+        {{ label }}
+      </cdx-checkbox>
+    </cdx-field>
+
+    <cdx-field :is-fieldset="true">
       <template #label>{{ tt("add_metadata") }}</template>
       <cdx-checkbox
         v-for="option of metadataOptions"
@@ -120,6 +134,7 @@ import {
   CdxTextInput,
   CdxRadio,
 } from "@wikimedia/codex";
+import { computed } from "vue";
 import tt from "../i18n/tt";
 import { useState } from "../useState";
 
@@ -144,6 +159,23 @@ const filesOptions = [
   "file_usage_data_ns0",
   "thumbnails_in_wiki_output",
 ] as const;
+const mediaTypeOptions = [
+  ["BITMAP", "Image (bitmap)"],
+  ["DRAWING", "Drawing"],
+  ["AUDIO", "Audio"],
+  ["VIDEO", "Video"],
+  ["MULTIMEDIA", "Multimedia"],
+  ["3D", "3D"],
+  ["OFFICE", "Office"],
+  ["TEXT", "Text"],
+  ["EXECUTABLE", "Executable"],
+  ["ARCHIVE", "Archive"],
+  ["UNKNOWN", "Unknown"],
+] as const;
+const fileMediaTypes = computed({
+  get: () => state.file_media_types.split("|").filter(Boolean),
+  set: (types: string[]) => (state.file_media_types = types.join("|")),
+});
 const metadataOptions = [
   "add_image",
   "add_coordinates",

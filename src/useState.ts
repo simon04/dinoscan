@@ -34,6 +34,7 @@ const state = reactive({
   "edits[flagged]": "both",
   ext_image_data: undefined as true | undefined,
   file_usage_data: undefined as true | undefined,
+  file_media_types: "",
   file_usage_data_ns0: undefined as true | undefined,
   format: "json",
   interface_language: "en",
