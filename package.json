@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.1",
-    "@vitejs/plugin-vue": "^6.0.8",
+    "@vitejs/plugin-vue": "^6.0.10",
     "typescript": "^5.9.3",
     "vite": "catalog:",
     "vite-plus": "catalog:",
