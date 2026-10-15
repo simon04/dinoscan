@@ -60,6 +60,24 @@
       </cdx-checkbox>
     </cdx-field>
 
+    <div
+      class="field-row"
+      v-for="[label, kind] of countFields"
+      style="margin-top: 1rem"
+    >
+      <div v-for="bound of ['min', 'max'] as const">
+        <cdx-field>
+          <cdx-text-input
+            :name="`${bound}_${kind}`"
+            v-model="state[`${bound}_${kind}`]"
+            input-type="number"
+          />
+          <template #label>{{ tt(label) }}</template>
+          <template #description>{{ tt(`${bound}_${kind}`) }}</template>
+        </cdx-field>
+      </div>
+    </div>
+
     <p style="margin-top: 2rem" v-html="tt('sitelink_note')"></p>
     <div class="field-row">
       <div v-for="option in options">
@@ -164,4 +182,8 @@ const state = useState();
 const wikidataItemOptions = ["no", "any", "with", "without"] as const;
 const wpiuOptions = ["any", "all", "none"] as const;
 const options = ["yes", "any", "no"] as const;
+const countFields = [
+  ["statement_number", "statements"],
+  ["identifier_number", "identifiers"],
+] as const;
 </script>
