@@ -41,12 +41,22 @@
         </cdx-field>
       </div>
     </div>
+
+    <cdx-field :label-icon="cdxIconUserAvatar">
+      <cdx-text-area name="created_by" v-model="state.created_by" />
+      <template #label>{{ tt("created_by") }}</template>
+      <template #description>{{ tt("created_by_note") }}</template>
+    </cdx-field>
   </section>
 </template>
 
 <script setup lang="ts">
 import { CdxCheckbox, CdxField, CdxTextArea } from "@wikimedia/codex";
-import { cdxIconLink, cdxIconTemplateAdd } from "@wikimedia/codex-icons";
+import {
+  cdxIconLink,
+  cdxIconTemplateAdd,
+  cdxIconUserAvatar,
+} from "@wikimedia/codex-icons";
 import tt from "../i18n/tt";
 import { useState } from "../useState";
 

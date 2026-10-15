@@ -26,6 +26,7 @@ const state = reactive({
   combination: "subset",
   common_wiki_other: "",
   common_wiki: "auto",
+  created_by: "",
   depth: 0,
   doit: "Do it!",
   "edits[anons]": "both",
