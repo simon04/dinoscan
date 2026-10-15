@@ -145,6 +145,7 @@ const formatOptions = [
   ["tsv", "TSV"],
   ["wiki", "Wiki"],
   ["json", "JSON"],
+  ["jsonl", "JSONL"],
   ["pagepile", "PagePile"],
   ["kml", "KML"],
   ["plain", tt("plain_text")],
