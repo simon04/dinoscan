@@ -85,6 +85,8 @@ const state = reactive({
   show_redlinks: undefined as true | undefined,
   show_soft_redirects: "both",
   since_rev0: "",
+  skip_hidden_categories: undefined as true | undefined,
+  skip_tracking_categories: undefined as true | undefined,
   sitelinks_any: "",
   sitelinks_no: "",
   sitelinks_yes: "",

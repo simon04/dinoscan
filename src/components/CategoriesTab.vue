@@ -112,12 +112,23 @@
       />
       <template #label>{{ tt("negative_categories") }}</template>
     </cdx-field>
+
+    <cdx-field :is-fieldset="true">
+      <cdx-checkbox
+        v-for="option of skipOptions"
+        v-model="state[option]"
+        :name="option"
+      >
+        {{ tt(option) }}
+      </cdx-checkbox>
+    </cdx-field>
   </section>
 </template>
 
 <script setup lang="ts">
 import {
   CdxButton,
+  CdxCheckbox,
   CdxIcon,
   CdxField,
   CdxLookup,
@@ -139,6 +150,10 @@ import { useSiteMatrix } from "../useSiteMatrix";
 import { useState } from "../useState";
 
 const state = useState();
+const skipOptions = [
+  "skip_tracking_categories",
+  "skip_hidden_categories",
+] as const;
 const matrixInput = ref("");
 const { matrix } = useSiteMatrix();
 const menuItems = computed(() =>
