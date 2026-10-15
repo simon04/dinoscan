@@ -159,6 +159,10 @@ watchEffect(() => (document.documentElement.dir = isRTL.value ? "rtl" : "ltr"));
 
 <style>
 @import "@wikimedia/codex/dist/codex.style-bidi.css";
+html {
+  background-color: var(--background-color-base);
+  color: var(--color-base);
+}
 @media screen and (min-width: 640px) {
   .field-row {
     margin-bottom: 1rem;
