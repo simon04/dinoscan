@@ -26,13 +26,23 @@ const { data: messagesEN } = useFetch(
   "https://tools-static.wmflabs.org/tooltranslate/data/petscan/en.json",
 ).json<Record<I18nKey, string>>();
 
-const { data: messages } = useFetch(
+const { data: messagesL10n } = useFetch(
   computed(
     () =>
       `https://tools-static.wmflabs.org/tooltranslate/data/petscan/${language.value}.json`,
   ),
-  { refetch: true },
+  {
+    refetch: true,
+    // English is already loaded as fallback
+    beforeFetch({ cancel }) {
+      if (language.value === "en") cancel();
+    },
+  },
 ).json<Record<I18nKey, string>>();
+
+const messages = computed(() =>
+  language.value === "en" ? undefined : messagesL10n.value,
+);
 
 export default function tt(key: I18nKey): string {
   const message = messages.value?.[key] || messagesEN.value?.[key];
