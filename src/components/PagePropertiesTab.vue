@@ -135,6 +135,18 @@
             {{ tt(`edits_${option}`) }}
           </cdx-radio>
         </cdx-field>
+        <cdx-field :is-fieldset="true" :label-icon="cdxIconUserTalk">
+          <template #label>{{ tt("talk_page_exists") }}</template>
+          <cdx-radio
+            v-for="option of tertiaryOptions"
+            v-model="state.talk_page_exists"
+            name="talk_page_exists"
+            :input-value="option"
+            :inline="true"
+          >
+            {{ tt(`edits_${option}`) }}
+          </cdx-radio>
+        </cdx-field>
       </div>
 
       <div>
@@ -185,6 +197,7 @@ import {
   cdxIconCalendar,
   cdxIconImage,
   cdxIconLink,
+  cdxIconUserTalk,
   cdxIconViewCompact,
 } from "@wikimedia/codex-icons";
 import tt from "../i18n/tt";

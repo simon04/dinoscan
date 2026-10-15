@@ -97,6 +97,7 @@ const state = reactive({
   sparql: "",
   sparse: undefined as true | undefined,
   subpage_filter: "either",
+  talk_page_exists: "both",
   templates_any: "",
   templates_no: "",
   templates_use_talk_any: undefined as true | undefined,
