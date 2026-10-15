@@ -4,6 +4,16 @@
       <template #label>{{ tt("sparql") }}</template>
       <template #description>{{ tt("sparql_note") }}</template>
       <cdx-text-area v-model="state.sparql" name="sparql" />
+      <cdx-radio
+        v-for="[option, label] of sparqlServerOptions"
+        v-model="state.sparql_server"
+        name="sparql_server"
+        :input-value="option"
+        :inline="true"
+        style="margin-top: 0.5rem"
+      >
+        {{ label }}
+      </cdx-radio>
     </cdx-field>
 
     <cdx-field style="margin-top: 2rem">
@@ -133,6 +143,10 @@ import tt from "../i18n/tt";
 import { useState } from "../useState";
 
 const state = useState();
+const sparqlServerOptions = [
+  ["wikidata", "Wikidata"],
+  ["qlever_wd", "QLever Wikidata"],
+] as const;
 const namespaceOptions = [
   "namespace_conversion_keep",
   "namespace_conversion_topic",

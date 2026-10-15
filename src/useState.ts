@@ -96,6 +96,7 @@ const state = reactive({
   sortorder: "ascending",
   source_combination: "",
   sparql: "",
+  sparql_server: "wikidata",
   sparse: undefined as true | undefined,
   subpage_filter: "either",
   talk_page_exists: "both",
