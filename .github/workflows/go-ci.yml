@@ -1,0 +1,34 @@
+name: Go CI
+
+on:
+  push:
+    paths: ["backend/**", ".github/workflows/go-ci.yml"]
+  pull_request:
+    paths: ["backend/**", ".github/workflows/go-ci.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mariadb:
+        image: mariadb:11
+        env:
+          MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "1"
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd "healthcheck.sh --connect"
+          --health-interval 2s --health-retries 30
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
+      - run: test -z "$(gofmt -l .)"
+      - run: go vet ./...
+      - run: go test ./...
+        env:
+          DINOSCAN_TEST_MARIADB: 127.0.0.1:3306

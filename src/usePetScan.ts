@@ -4,12 +4,16 @@ import { useState } from "./useState";
 
 const state = useState();
 
+// Set VITE_PETSCAN_API to use another backend, e.g. http://localhost:8000/api
+const petScanAPI =
+  import.meta.env.VITE_PETSCAN_API ?? "https://petscan.wmcloud.org/";
+
 const url = computed(() => {
   const params = new URLSearchParams();
   Object.entries(JSON.parse(JSON.stringify(state))).forEach(
     ([key, value]) => value && params.set(key, String(value)),
   );
-  return "https://petscan.wmcloud.org/?" + params;
+  return petScanAPI + "?" + params;
 });
 
 const {
