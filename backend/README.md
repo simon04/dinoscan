@@ -111,10 +111,13 @@ Deliberate changes, mostly fixes:
 
 ## Deployment
 
-Not deployed yet. The plan is one Toolforge component running this binary,
-serving both the API and the frontend (replacing `server.js`). Still to do:
+The Toolforge component (`toolforge.yaml`, `Procfile` in the repository root)
+runs this binary, serving the frontend and the API. `go.mod` is at the
+repository root because the
+[Heroku Go buildpack](https://github.com/heroku/buildpacks-go) requires it
+there; its `// +heroku install ./backend` directive builds only this package,
+and `ignore` keeps `go` commands out of `node_modules` and `dist`. Toolforge
+provides `TOOL_REPLICA_USER` and `TOOL_REPLICA_PASSWORD`.
 
-- build both parts on Toolforge (Node.js and Go buildpacks; the Go buildpack
-  may need `go.mod` at the repository root, or the frontend built elsewhere),
-- point the frontend at `/api` (`VITE_PETSCAN_API`),
-- switch `Procfile`/`toolforge.yaml`.
+The frontend still queries petscan.wmcloud.org by default. To use this
+backend, build it with `VITE_PETSCAN_API=/api`.

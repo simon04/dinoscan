@@ -7,8 +7,10 @@
 The tool is deployed on [Toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Deploy_your_tool)
 at https://dinoscan.toolforge.org/ using the build service. `toolforge.yaml`
 declares a single continuous component, built from this repository and published
-at `/`; the `web` process in the `Procfile` serves the Vite build output via
-`server.js`.
+at `/`. The build service detects Node.js (`package.json`), which builds the
+frontend into `dist/`, and Go (`go.mod`), which builds the [backend](backend/)
+into the `backend` binary. The `web` process in the `Procfile` runs it: it
+serves `dist/`, the health check at `/healthz` and the query API at `/api`.
 
 Register the configuration once, then deploy:
 

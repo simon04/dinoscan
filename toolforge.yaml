@@ -1,4 +1,8 @@
 # https://wikitech.wikimedia.org/wiki/Help:Toolforge/Deploy_your_tool
+# The build service detects Node.js (package.json, builds the frontend into
+# dist/) and Go (go.mod, builds ./backend into the `backend` binary); the
+# `web` process of the Procfile runs the Go server, serving both dist/ and
+# the API at /api.
 config_version: v1beta1
 components:
   web:
@@ -10,4 +14,4 @@ components:
       command: web
       port: 8000
       publish: /
-      health_check_http: /
+      health_check_http: /healthz
