@@ -4,9 +4,11 @@ import { useState } from "./useState";
 
 const state = useState();
 
-// Set VITE_PETSCAN_API to use another backend, e.g. http://localhost:8000/api
+// The query API of our Go backend (see backend/). Absolute, so that the
+// GitHub Pages build and the dev server use it too; set VITE_PETSCAN_API to
+// use another backend, e.g. http://localhost:8000/api
 const petScanAPI =
-  import.meta.env.VITE_PETSCAN_API ?? "https://petscan.wmcloud.org/";
+  import.meta.env.VITE_PETSCAN_API ?? "https://dinoscan.toolforge.org/api";
 
 const url = computed(() => {
   const params = new URLSearchParams();

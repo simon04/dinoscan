@@ -119,5 +119,5 @@ there; its `// +heroku install ./backend` directive builds only this package,
 and `ignore` keeps `go` commands out of `node_modules` and `dist`. Toolforge
 provides `TOOL_REPLICA_USER` and `TOOL_REPLICA_PASSWORD`.
 
-The frontend still queries petscan.wmcloud.org by default. To use this
-backend, build it with `VITE_PETSCAN_API=/api`.
+The frontend queries `https://dinoscan.toolforge.org/api` (also from GitHub
+Pages and the dev server, CORS allows it); `VITE_PETSCAN_API` overrides that.

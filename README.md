@@ -1,6 +1,8 @@
 # DinoScan
 
-[Codex](https://doc.wikimedia.org/codex/latest/) frontend for [PetScan](https://petscan.wmcloud.org/).
+[Codex](https://doc.wikimedia.org/codex/latest/) frontend and Go
+[backend](backend/) for [PetScan](https://meta.wikimedia.org/wiki/PetScan/en)
+queries, independent of the PetScan instance at petscan.wmcloud.org.
 
 ## Deployment
 

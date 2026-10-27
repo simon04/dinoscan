@@ -140,7 +140,6 @@ import { useState } from "../useState";
 
 const state = useState();
 const formatOptions = [
-  ["html", "HTML"],
   ["csv", "CSV"],
   ["tsv", "TSV"],
   ["wiki", "Wiki"],
