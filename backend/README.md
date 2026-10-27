@@ -119,5 +119,6 @@ there; its `// +heroku install ./backend` directive builds only this package,
 and `ignore` keeps `go` commands out of `node_modules` and `dist`. Toolforge
 provides `TOOL_REPLICA_USER` and `TOOL_REPLICA_PASSWORD`.
 
-The frontend queries `https://dinoscan.toolforge.org/api` (also from GitHub
-Pages and the dev server, CORS allows it); `VITE_PETSCAN_API` overrides that.
+The frontend queries `/api` on its own origin. The Vite dev server proxies
+it to https://dinoscan.toolforge.org, and the GitHub Pages build uses that
+absolute URL (CORS allows it); `VITE_PETSCAN_API` overrides it.

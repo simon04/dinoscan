@@ -17,6 +17,9 @@ jobs:
           node-version: "24"
       - run: pnpm install
       - run: pnpm build
+        env:
+          # GitHub Pages has no /api of its own.
+          VITE_PETSCAN_API: https://dinoscan.toolforge.org/api
       - uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:

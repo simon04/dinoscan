@@ -4,11 +4,10 @@ import { useState } from "./useState";
 
 const state = useState();
 
-// The query API of our Go backend (see backend/). Absolute, so that the
-// GitHub Pages build and the dev server use it too; set VITE_PETSCAN_API to
-// use another backend, e.g. http://localhost:8000/api
-const petScanAPI =
-  import.meta.env.VITE_PETSCAN_API ?? "https://dinoscan.toolforge.org/api";
+// The query API of our Go backend (see backend/), on the same origin on
+// Toolforge and proxied by the Vite dev server. The GitHub Pages build sets
+// VITE_PETSCAN_API to the absolute URL.
+const petScanAPI = import.meta.env.VITE_PETSCAN_API ?? "/api";
 
 const url = computed(() => {
   const params = new URLSearchParams();

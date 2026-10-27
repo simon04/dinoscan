@@ -32,6 +32,13 @@ process.env.VITE_APP_DEPENDENCIES = Object.keys(
 // https://viteplus.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  server: {
+    // The query API of the deployed Go backend; run it locally instead with
+    // VITE_PETSCAN_API=http://localhost:8000/api
+    proxy: {
+      "/api": { target: "https://dinoscan.toolforge.org", changeOrigin: true },
+    },
+  },
   fmt: {
     htmlWhitespaceSensitivity: "ignore",
     printWidth: 80,
